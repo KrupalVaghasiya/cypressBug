@@ -5,7 +5,7 @@ import { dispenserPageSelectors } from '../PageSelectors/dispenserPageSelectors.
 import { loginPageSelectors } from '../PageSelectors/loginPageSelectors'
 
 const faker = require('faker');
-const allergiesName = faker.name.firstName() + " Allergies";
+const allergiesName = faker.Name.firstName() + " Allergies";
 
 // Onetime RX, OTC, And Compound order with skip payment
 Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
@@ -615,13 +615,13 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 			cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
 			cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 			cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
-			cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
-			cy.enterText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss); // enter shipping details
-			cy.clearText(dispenserPageSelectors.AddressCity, dispenserData.cityName)
-			cy.enterText(dispenserPageSelectors.AddressCity, dispenserData.cityName); // enter city name
-			cy.selectState(); // select state
-			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
-			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
+			// cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
+			// cy.enterText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss); // enter shipping details
+			// cy.clearText(dispenserPageSelectors.AddressCity, dispenserData.cityName)
+			// cy.enterText(dispenserPageSelectors.AddressCity, dispenserData.cityName); // enter city name
+			// cy.selectState(); // select state
+			// cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
+			// cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 		}
 		else {
@@ -631,13 +631,13 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 			cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
 			cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 			cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
-			cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
-			cy.enterText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss); // enter shipping details
-			cy.clearText(dispenserPageSelectors.AddressCity, dispenserData.cityName)
-			cy.enterText(dispenserPageSelectors.AddressCity, dispenserData.cityName); // enter city name
-			cy.selectState(); // select state
-			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
-			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
+			// cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
+			// cy.enterText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss); // enter shipping details
+			// cy.clearText(dispenserPageSelectors.AddressCity, dispenserData.cityName)
+			// cy.enterText(dispenserPageSelectors.AddressCity, dispenserData.cityName); // enter city name
+			// cy.selectState(); // select state
+			// cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
+			// cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 		}
 	})

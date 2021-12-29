@@ -10,8 +10,8 @@ import { patientPageSelectors } from '../PageSelectors/patientPageSelectors.js';
 import { PatientData } from '../PageData/PatientData.js';
 
 const faker = require("faker");
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
+const firstName = faker.Name.firstName();
+const lastName = faker.Name.lastName();
 const email = "cypress." + firstName + "@malinator.com";
 //const birthDate = Cypress.moment().add(10, 'days').calendar()
 
@@ -19,10 +19,10 @@ var date = new Date();
 var birthDate = (((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear())
 
 const emailAddress = "@mailinator.com";
-const PhoneNumber = faker.phone.phoneNumber();
-const PhoneNumberFormat = faker.phone.phoneNumber();
-const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
-const allergiesName = "Cypress " + faker.name.firstName() + "_Allergies";
+const PhoneNumber = faker.PhoneNumber.phoneNumber();
+const PhoneNumberFormat = faker.PhoneNumber.phoneNumber();
+const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
+const allergiesName = "Cypress " + faker.Name.firstName() + "_Allergies";
 
 Cypress.Commands.add('ChangeProductPrice', () => {
 	cy.clickOnElement(loginPageSelectors.mainDashBoardLink); //click on the account button link

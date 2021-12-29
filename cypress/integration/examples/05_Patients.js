@@ -14,12 +14,12 @@ import { patientPageSelectors } from '../../support/PageSelectors/patientPageSel
 import { PatientData } from '../../support/PageData/PatientData.js';
 
 const faker = require("faker");
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
+const firstName = faker.Name.firstName();
+const lastName = faker.Name.lastName();
 const emailAddress = firstName + "@mailinator.com";
-const PhoneNumber = faker.phone.phoneNumber();
-const allergiesName = "Cypress " + faker.name.firstName() + "_Allergies";
-const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
+const PhoneNumber = faker.PhoneNumber.phoneNumber();
+const allergiesName = "Cypress " + faker.Name.firstName() + "_Allergies";
+const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
 const identity_card = faker.random.number(10, 50)
 const street_1 = faker.address.streetAddress()
 const street_2 = faker.address.secondaryAddress()

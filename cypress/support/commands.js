@@ -86,7 +86,7 @@ Cypress.Commands.add('clickOnElementWithIndexText', (loc, index, data) => {
 });
 
 Cypress.Commands.add('verifyUrl', (data, log) => {
-	cy.url().should('contains', data);
+	cy.url({timeout:30000}).should('contains', data);
 });
 
 Cypress.Commands.add('verifyTextToBePresent', (data, log) => {
