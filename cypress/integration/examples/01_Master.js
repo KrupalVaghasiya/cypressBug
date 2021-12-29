@@ -41,20 +41,13 @@ describe('Forgot Password From Master ', () => {
   it('Forgot Password', () => {
     cy.MasterForgotPassword()
   });
-<<<<<<< HEAD
 });
-=======
-})
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
 describe('Create RX, OTC and Compound Products from Master Account', () => {
   beforeEach(() => {
     cy.MasterLogin()
-<<<<<<< HEAD
+
   })
-=======
-  });
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
   // Create RX product from master account
   it('Create RX Product', () => {

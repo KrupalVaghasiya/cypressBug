@@ -41,11 +41,7 @@ var birthDate = (((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.g
 describe('Create Patient And OTC Subscription Order From Practice Account', () => {
     beforeEach(() => {
         cy.PracticeLogin()
-<<<<<<< HEAD
     })
-=======
-    });
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
     it('Create Patient', () => {
         cy.CreatePatient()
@@ -147,20 +143,13 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(practiceData.continueButton)
         cy.verifyElementExists(patientPageSelectors.Footer);
         cy.clickOnElementUsingText(PatientData.AccountLink);
-<<<<<<< HEAD
     });
-=======
-    })
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
     it('Payment method', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.AccountScreen)
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.UpdateButton, 1)
-<<<<<<< HEAD
         cy.enterText(patientPageSelectors.nameOnCard, practiceData.nameOnCard);
-=======
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
         cy.enterText(patientPageSelectors.nameOnCard, practiceData.nameOnCard); // enter the name as on card
         cy.iframe('iframe[src*="uat.freedompay.com"]')
         .find(patientPageSelectors.CardNumber)

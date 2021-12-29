@@ -15,7 +15,6 @@ const faker = require('faker');
 const template = faker.name.firstName() + " Template";
 const treatmentTemplate = faker.name.firstName() + " treatment Template";
 
-<<<<<<< HEAD
 describe('Forgot Password From Practice and Set new password', () => {
   it('Forgot Password', () => {
     cy.PracticeForgotPassword()
@@ -159,151 +158,150 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
   })
 })
-=======
-// describe('Forgot Password From Practice and Set new password', () => {
-//   it('Forgot Password', () => {
-//     cy.PracticeForgotPassword()
-//   });
 
-//   it('Verify Forgot password mail', () => {
-//     cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
-//     cy.fixture('Data').then((profile) => {
-//       cy.enterText(patientPageSelectors.txtMailID, profile.Practice_Email)
-//     })
-//     cy.VerifyForgetPasswordEmail()
-//   })
+describe('Forgot Password From Practice and Set new password', () => {
+  it('Forgot Password', () => {
+    cy.PracticeForgotPassword()
+  });
 
-//   it("Set Password", () => {
-//     cy.SetPassword()
-//   })
-// })
+  it('Verify Forgot password mail', () => {
+    cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
+    cy.fixture('Data').then((profile) => {
+      cy.enterText(patientPageSelectors.txtMailID, profile.Practice_Email)
+    })
+    cy.VerifyForgetPasswordEmail()
+  })
 
-// describe('Create Onetime & Subscription Template and Upload Dropchart Documents', () => {
-//   beforeEach(() => {
-//     cy.PracticeLogin()
-//   });
+  it("Set Password", () => {
+    cy.SetPassword()
+  })
+})
 
-//   it('Create Individual Template', () => {
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.orderTemplate, 0); // click on the order template tab
-//     cy.verifyTextToBePresent(masterCreationData.myDashBoard); // verify the my dashborad tab on the main page
-//     cy.verifyTextToBePresent(masterCreationData.productDashBoard); // verify the product tab on main page
-//     cy.clickOnElementUsingXpath(practicePageSelectors.addNewTemplate); // click on the add new tamplate button
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.selectButtonId, 0); // select the template type
-//     cy.enterText(practicePageSelectors.templateTitleId, template); // enter the template name
-//     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId); // click on the continue button
-//     cy.searchForTemplateMedicine()
-//     cy.clickOnElementUsingXpath(practicePageSelectors.addMedicine); // click on the add Medicine
-//     cy.Changequantity()
-//     cy.enterText(practicePageSelectors.enterNotesToPharmasist, dispenserData.instructionMessage);
-//     cy.clickOnElementUsingXpath(practicePageSelectors.saveTemplateId); // click on the save template button
-//     cy.verifyTextToBePresent(template); // verify the template name
-//   });
+describe('Create Onetime & Subscription Template and Upload Dropchart Documents', () => {
+  beforeEach(() => {
+    cy.PracticeLogin()
+  });
 
-//   it('Create Subscription Template', () => {
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.orderTemplate, 0); // click on the order template tab
-//     cy.verifyTextToBePresent(masterCreationData.myDashBoard); // verify the my dashboard tab on main page
-//     cy.verifyTextToBePresent(masterCreationData.productDashBoard); // verify the product tab on the main page
-//     cy.clickOnElementUsingXpath(practicePageSelectors.addNewTemplate); // click on the add new template
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.selectButtonId, 1); // select the treatment type template
-//     cy.enterText(practicePageSelectors.templateTitleId, treatmentTemplate); // enter the template name
-//     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId); // click on the continue button
-//     cy.searchForTemplateMedicine()
-//     cy.clickOnElementUsingXpath(practicePageSelectors.addMedicine); // click on the add Medicine
-//     cy.Changequantity()
-//     cy.enterText(practicePageSelectors.enterNotesToPharmasist, dispenserData.instructionMessage);
-//     cy.clickOnElementUsingXpath(practicePageSelectors.saveTemplateId); // click on the save template button
-//     cy.verifyTextToBePresent(treatmentTemplate); // verify the template name
-//   });
+  it('Create Individual Template', () => {
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.orderTemplate, 0); // click on the order template tab
+    cy.verifyTextToBePresent(masterCreationData.myDashBoard); // verify the my dashborad tab on the main page
+    cy.verifyTextToBePresent(masterCreationData.productDashBoard); // verify the product tab on main page
+    cy.clickOnElementUsingXpath(practicePageSelectors.addNewTemplate); // click on the add new tamplate button
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.selectButtonId, 0); // select the template type
+    cy.enterText(practicePageSelectors.templateTitleId, template); // enter the template name
+    cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId); // click on the continue button
+    cy.searchForTemplateMedicine()
+    cy.clickOnElementUsingXpath(practicePageSelectors.addMedicine); // click on the add Medicine
+    cy.Changequantity()
+    cy.enterText(practicePageSelectors.enterNotesToPharmasist, dispenserData.instructionMessage);
+    cy.clickOnElementUsingXpath(practicePageSelectors.saveTemplateId); // click on the save template button
+    cy.verifyTextToBePresent(template); // verify the template name
+  });
 
-//   it('Upload Welcome letter', () => {
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.Documents, 0); // click on the order template tab
-//     cy.clickOnElementUsingXpath(practicePageSelectors.uploadNewDocuments); // click on the add new documenst button
-//     cy.SearchDoctor()
-//     cy.SelectDocumentType1()
-//     cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle1)
-//     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
+  it('Create Subscription Template', () => {
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.orderTemplate, 0); // click on the order template tab
+    cy.verifyTextToBePresent(masterCreationData.myDashBoard); // verify the my dashboard tab on main page
+    cy.verifyTextToBePresent(masterCreationData.productDashBoard); // verify the product tab on the main page
+    cy.clickOnElementUsingXpath(practicePageSelectors.addNewTemplate); // click on the add new template
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.selectButtonId, 1); // select the treatment type template
+    cy.enterText(practicePageSelectors.templateTitleId, treatmentTemplate); // enter the template name
+    cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId); // click on the continue button
+    cy.searchForTemplateMedicine()
+    cy.clickOnElementUsingXpath(practicePageSelectors.addMedicine); // click on the add Medicine
+    cy.Changequantity()
+    cy.enterText(practicePageSelectors.enterNotesToPharmasist, dispenserData.instructionMessage);
+    cy.clickOnElementUsingXpath(practicePageSelectors.saveTemplateId); // click on the save template button
+    cy.verifyTextToBePresent(treatmentTemplate); // verify the template name
+  });
 
-//     //Upload file from Fixtures
-//     cy.get('[type="file"]').attachFile('Welcome Letter.pdf');
-//     cy.wait(15000)
-//     cy.clickOnElementTextWithForce(masterCreationData.SubmitId)
-//     cy.clickOnElementTextWithForce(loginData.dismissButton)
-//   });
+  it('Upload Welcome letter', () => {
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.Documents, 0); // click on the order template tab
+    cy.clickOnElementUsingXpath(practicePageSelectors.uploadNewDocuments); // click on the add new documenst button
+    cy.SearchDoctor()
+    cy.SelectDocumentType1()
+    cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle1)
+    cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
 
-//   it('Upload Patient direction', () => {
-//     cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.Documents, 0); // click on the order template tab
-//     cy.clickOnElementUsingXpath(practicePageSelectors.uploadNewDocuments); // click on the add new documenst button
-//     cy.SearchDoctor()
-//     cy.SelectDocumentType2()
-//     cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle2)
-//     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
+    //Upload file from Fixtures
+    cy.get('[type="file"]').attachFile('Welcome Letter.pdf');
+    cy.wait(15000)
+    cy.clickOnElementTextWithForce(masterCreationData.SubmitId)
+    cy.clickOnElementTextWithForce(loginData.dismissButton)
+  });
 
-//     //Upload file from Fixtures
-//     cy.get('[type="file"]').attachFile('Patient Direction.pdf');
-//     cy.wait(15000)
-//     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
-//     cy.searchFordropchartMedicine()
-//     cy.clickOnElementTextWithForce(masterCreationData.AddRX)
-//     cy.clickOnElementTextWithForce(masterCreationData.SubmitId)
-//     cy.clickOnElementTextWithForce(loginData.dismissButton)
-//   });
+  it('Upload Patient direction', () => {
+    cy.clickOnElementUsingXpathwithIndex(practicePageSelectors.Documents, 0); // click on the order template tab
+    cy.clickOnElementUsingXpath(practicePageSelectors.uploadNewDocuments); // click on the add new documenst button
+    cy.SearchDoctor()
+    cy.SelectDocumentType2()
+    cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle2)
+    cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
 
-//   it('Add New User from practice account', () => {
-//     cy.AddUser()
-//   });
-// });
+    //Upload file from Fixtures
+    cy.get('[type="file"]').attachFile('Patient Direction.pdf');
+    cy.wait(15000)
+    cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
+    cy.searchFordropchartMedicine()
+    cy.clickOnElementTextWithForce(masterCreationData.AddRX)
+    cy.clickOnElementTextWithForce(masterCreationData.SubmitId)
+    cy.clickOnElementTextWithForce(loginData.dismissButton)
+  });
 
-// describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
-//   beforeEach(() => {
-//     cy.PracticeLogin()
-//   });
+  it('Add New User from practice account', () => {
+    cy.AddUser()
+  });
+});
 
-//   it('Create Rx order Onetime with skip payment', () => {
-//     cy.CreatePatient()
-//     cy.CreatingRXOnetimelaterpayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   });
+describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
+  beforeEach(() => {
+    cy.PracticeLogin()
+  });
 
-//   it('Search Patient Using Main Search Bar', () => {
-//     cy.patientMainSearch()
-//   })
+  it('Create Rx order Onetime with skip payment', () => {
+    cy.CreatePatient()
+    cy.CreatingRXOnetimelaterpayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  });
 
-//   it('Verify Order from orders details screen', () => {
-//     cy.VerifyOrderDetails()
-//   })
+  it('Search Patient Using Main Search Bar', () => {
+    cy.patientMainSearch()
+  })
 
-//   it('Create OTC order Onetime with skip payment', () => {
-//     cy.CreatingOTCOnetimelaterpayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   });
+  it('Verify Order from orders details screen', () => {
+    cy.VerifyOrderDetails()
+  })
 
-//   it('Create Compound order Onetime with skip payment', () => {
-//     cy.CreatingCompoundOnetimelaterpayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   });
-// })
+  it('Create OTC order Onetime with skip payment', () => {
+    cy.CreatingOTCOnetimelaterpayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  });
 
-// describe("Create Subscription RX, OTC and Compound order with Skip payment ", () => {
-//   beforeEach(() => {
-//     cy.PracticeLogin()
-//   });
+  it('Create Compound order Onetime with skip payment', () => {
+    cy.CreatingCompoundOnetimelaterpayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  });
+})
 
-//   it('Create RX order Subscription with Skip payment', () => {
-//     cy.CreatingRXSubscriptionLaterPayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   })
+describe("Create Subscription RX, OTC and Compound order with Skip payment ", () => {
+  beforeEach(() => {
+    cy.PracticeLogin()
+  });
 
-//   it('Create OTC order Subscription with Skip payment', () => {
-//     cy.CreatingOTCSubscriptionLaterPayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   })
+  it('Create RX order Subscription with Skip payment', () => {
+    cy.CreatingRXSubscriptionLaterPayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  })
 
-//   it('Create Compound order Subscription with Skip payment', () => {
-//     cy.CreatingCompoundSubscriptionLaterPayment()
-//     cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
-//   })
-// })
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
+  it('Create OTC order Subscription with Skip payment', () => {
+    cy.CreatingOTCSubscriptionLaterPayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  })
+
+  it('Create Compound order Subscription with Skip payment', () => {
+    cy.CreatingCompoundSubscriptionLaterPayment()
+    cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
+  })
+})
 
 describe("Create Onetime RX, OTC and Compound order with Provide payment ", () => {
   beforeEach(() => {
@@ -347,7 +345,6 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
   })
 })
 
-<<<<<<< HEAD
 describe('Create Order from Technician User account', () => {
   before(() => {
     cy.TechnicianUserLogin()
@@ -386,43 +383,42 @@ describe("Verifying Order In Associate Practice Account", () => {
     })
   })
 })
-=======
-// describe('Create Order from Technician User account', () => {
-//   before(() => {
-//     cy.TechnicianUserLogin()
-//   })
 
-//   it('Create Rx order Onetime with skip payment', () => {
-//     cy.CreatingRXOrderFromUserAccount()
-//     cy.clickOnElementUsingXpath(practicePageSelectors.sendToQueue); // click on submit button
-//     cy.wait(3000)
-//     cy.xpath('//div[1]/div/div[1]/div[3]/text()').then(function ($ordernumber) {
-//       const text = $ordernumber.text()
-//       cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-//         profile.OrderNumber = text
-//         cy.writeFile("cypress/fixtures/Data.json", profile);
-//       })
-//     })
-//   });
-// })
+describe('Create Order from Technician User account', () => {
+  before(() => {
+    cy.TechnicianUserLogin()
+  })
 
-// describe("Verifying Order In Associate Practice Account", () => {
-//   beforeEach(() => {
-//     cy.PracticeLogin()
-//   });
+  it('Create Rx order Onetime with skip payment', () => {
+    cy.CreatingRXOrderFromUserAccount()
+    cy.clickOnElementUsingXpath(practicePageSelectors.sendToQueue); // click on submit button
+    cy.wait(3000)
+    cy.xpath('//div[1]/div/div[1]/div[3]/text()').then(function ($ordernumber) {
+      const text = $ordernumber.text()
+      cy.readFile("cypress/fixtures/Data.json").then((profile) => {
+        profile.OrderNumber = text
+        cy.writeFile("cypress/fixtures/Data.json", profile);
+      })
+    })
+  });
+})
 
-//   it('Check Order Comes Into My Queue', () => {
-//     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-//       cy.xpath(practicePageSelectors.myQueueOrder, { timeout: 30000 })
-//         .contains('td', profile.Patient_fullName)
-//         .xpath(practicePageSelectors.myQueueOrder, { timeout: 30000 })
-//         .contains('td', 'One-time Order')
-//         .should('be.exist')
-//     })
-//     cy.clickOnElementUsingXpathwithIndex('//tbody/tr[1]', 0)
-//     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-//       cy.verifyTextToBePresent(profile.OrderNumber)
-//     })
-//   })
-// })
->>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
+describe("Verifying Order In Associate Practice Account", () => {
+  beforeEach(() => {
+    cy.PracticeLogin()
+  });
+
+  it('Check Order Comes Into My Queue', () => {
+    cy.readFile("cypress/fixtures/Data.json").then((profile) => {
+      cy.xpath(practicePageSelectors.myQueueOrder, { timeout: 30000 })
+        .contains('td', profile.Patient_fullName)
+        .xpath(practicePageSelectors.myQueueOrder, { timeout: 30000 })
+        .contains('td', 'One-time Order')
+        .should('be.exist')
+    })
+    cy.clickOnElementUsingXpathwithIndex('//tbody/tr[1]', 0)
+    cy.readFile("cypress/fixtures/Data.json").then((profile) => {
+      cy.verifyTextToBePresent(profile.OrderNumber)
+    })
+  })
+})
