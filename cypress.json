@@ -10,8 +10,16 @@
     "embeddedScreenshots": true,
     "inlineAssets": true
   },
+<<<<<<< HEAD
   "video": false,
   "scrollBehavior": "nearest",
   "chromeWebSecurity": false,
   "projectId": "bp9zfb"
 }
+=======
+  "experimentalRunEvents": true,
+  "video": false,
+  "scrollBehavior": "nearest",
+  "chromeWebSecurity": false
+}
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720

@@ -30,11 +30,18 @@ const PatientData = {
     ThankyouMessage: 'Thank you for your feedback!',
     HomeNotification: "We just need a few more details from you, then we'll be ready to ship!",
     OrderSubmited: 'Your order has been submitted',
+<<<<<<< HEAD
     CustomReason: 'I have completed my treatment.',
+=======
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
     CustomReason: 'I have completed my treatment',
     Verifyforgetmail: 'Set New Password for Legrande Account',
     SignIn: 'Sign In',
     CheckDetailsPending: "You’re all caught up!,We'll let you know as soon as anything changes."
 }
 
+<<<<<<< HEAD
 export { PatientData }
+=======
+export { PatientData };
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720

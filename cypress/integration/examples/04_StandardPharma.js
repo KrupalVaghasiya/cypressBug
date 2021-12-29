@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Login_ForgetPassword } from '../../support/PageObjects/Login_ForgetPassword.js'
+=======
+import { Login_ForgetPassword } from '../../support/PageObjects/LoginPageObjects/Login_ForgetPassword.js'
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 import { SourceCode } from '../../support/SourceCode/SourceCode.js'
 import { EditDetails } from '../../support/SourceCode/EditDetails.js'
 import { OrderCreation } from '../../support/SourceCode/OrderCreation.js'
@@ -15,7 +19,11 @@ import { patientPageSelectors } from '../../support/PageSelectors/patientPageSel
 describe('Forgot Password From Standard Pharma ', () => {
   it('Forgot Password', () => {
     cy.StandardPharmaForgotPassword()
+<<<<<<< HEAD
   })
+=======
+  });
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
   it('Verify Forgot password mail', () => {
     cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
@@ -23,7 +31,11 @@ describe('Forgot Password From Standard Pharma ', () => {
       cy.enterText(patientPageSelectors.txtMailID, profile.RX_Dispenser_Email)
     })
     cy.VerifyForgetPasswordEmail()
+<<<<<<< HEAD
   });
+=======
+  })
+>>>>>>> 41bbc192d547d48b5ffc5da674a9ed9a3d348720
 
   it("Set Password", () => {
     cy.SetPassword()
