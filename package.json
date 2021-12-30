@@ -1,0 +1,55 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "delete:reportFolder": "rm -rf mochawesome-report/",
+    "test:cli": "npm run delete:reportFolder && cypress run",
+    "merge:reports": "mochawesome-merge mochawesome-report/*.json > cypress-combined-report.json",
+    "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json",
+    "cy:run": "cypress run"
+  },
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  },
+  "video": false,
+  "author": "weblylab",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.3.0",
+    "cypress-file-upload": "^5.0.2",
+    "cypress-mochawesome-reporter": "^2.2.0",
+    "cypress-xpath": "^1.6.1",
+    "faker": "^5.4.0",
+    "i": "^0.3.6",
+    "mocha": "^8.4.0",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "tsconfig-paths": "^3.9.0"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.13.6",
+    "@types/bluebird": "^3.5.33",
+    "@types/lodash": "^4.14.168",
+    "Faker": "^0.7.2",
+    "chai": "^4.3.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-skip-test": "^1.0.0",
+    "delay": "^5.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "resolve-url": "^0.2.1",
+    "save": "^2.4.0",
+    "source-map-resolve": "^0.6.0",
+    "urix": "^0.1.0",
+    "xlsx": "^0.17.0"
+  }
+}
