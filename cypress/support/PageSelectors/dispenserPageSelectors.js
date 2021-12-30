@@ -8,6 +8,10 @@ const dispenserPageSelectors = {
 	AddressLine2: 'div[id="shipping_address"] [name="street_2"]', // address field input id
 	AddressCity: 'div[id="shipping_address"] [name="city"]', // city name input field id
 	AddressZipCode: 'div[id="shipping_address"] [name="zip"]', //zip code input field id
+	BillingLine1: 'div[id="billing_address"] [name="street_1"]', // address field input id
+	BillingLine2: 'div[id="billing_address"] [name="street_2"]', // address field input id
+	BillingCity: 'div[id="billing_address"] [name="city"]', // city name input field id
+	BillingZipCode: 'div[id="billing_address"] [name="zip"]', //zip code input field id
 	tableRowId: '.table>tbody>tr', // table row id
 	updateOrderId: 'button[class*="btn-primary"]', //update order button 
 	editButtonId: 'div[class="buttons"] ', //edit button

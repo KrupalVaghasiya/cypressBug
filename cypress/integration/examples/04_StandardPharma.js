@@ -1,6 +1,4 @@
 import { Login_ForgetPassword } from '../../support/PageObjects/Login_ForgetPassword.js'
-import { Login_ForgetPassword } from '../../support/PageObjects/LoginPageObjects/Login_ForgetPassword.js'
-import { Login_ForgetPassword } from '../../support/PageObjects/LoginPageObjects/Login_ForgetPassword.js'
 import { SourceCode } from '../../support/SourceCode/SourceCode.js'
 import { EditDetails } from '../../support/SourceCode/EditDetails.js'
 import { OrderCreation } from '../../support/SourceCode/OrderCreation.js'
@@ -122,7 +120,6 @@ describe('Create RX, OTC and Compound order subscription with skip payment', () 
 describe('Approve Order From Practice Account', () => {
   beforeEach(() => {
     cy.PracticeLogin()
-
   })
 
   it('Approve Order By Doctor', () => {
@@ -135,8 +132,7 @@ describe('Edit Patient Pending Details from Hub Portal', () => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
-    cy.EditPatientDetails()
+  it('Approve patient and transfer order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })
@@ -195,7 +191,7 @@ describe('Edit Patient Pending Details from Hub Portal', () => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
+  it('Approve patient and transfer order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })
@@ -254,7 +250,7 @@ describe('Edit Patient Pending Details from Hub Portal', () => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
+  it('Approve patient and transfer order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })

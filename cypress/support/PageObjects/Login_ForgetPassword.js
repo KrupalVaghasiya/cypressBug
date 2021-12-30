@@ -1,4 +1,3 @@
-// methods used for login flow
 import { loginData } from '../PageData/loginData.js';
 import { masterCreationData } from '../PageData/masterCreationData.js';
 import { loginPageSelectors } from '../PageSelectors/loginPageSelectors'

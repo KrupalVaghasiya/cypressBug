@@ -87,7 +87,7 @@ const dispenserData = {
 	invalidDispenserEmail: 'stddispenseradmin@getnada.com',
 	noDispenserMessage: 'There is no dispenser with this login',
 	messagePageUrl: 'https://getnada.com/msg',
-	instructionMessage: 'follow these instructions.',
+	instructionMessage: 'Follow these instructions.',
 	dispenserUpdationMessage: 'Congratulations. You have successfully updated the dispenser account.',
 	yopmailTabName: '[SPAM]Legrande',
 	prescriptionOnFileText: 'Prescription on File',

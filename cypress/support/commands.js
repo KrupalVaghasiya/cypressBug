@@ -1,4 +1,3 @@
-import 'cypress-wait-until';
 Cypress.Commands.add('subValues', (a, b) => { return a - b });
 import './commands';
 import 'cypress-iframe';
@@ -235,12 +234,12 @@ Cypress.Commands.add('clickOnElementWithIndex', (index, loc, log) => {
 
 Cypress.Commands.add('Changequantity', () => {
 	cy.xpath('//*[@class="table"]//*[@class="Select-arrow"]').first().click({ multiple: true })
-	cy.get('div[aria-label="2"]').click();
+	cy.get('[aria-label="2"]').click();
 });
 
 Cypress.Commands.add('AddRefills', () => {
 	cy.xpath('//*[@data-test="refills"]//*[@class="Select-arrow"]').click({ multiple: true })
-	cy.get('div[aria-label="2"]').click();
+	cy.get('[aria-label="2"]').click();
 });
 
 Cypress.Commands.add('enterTextInFieldwithEnter', (loc, data) => {
@@ -309,52 +308,38 @@ Cypress.Commands.add('findCompoundmedicine', () => {
 	cy.contains('Compound', { timeout: 20000 }).first().click();
 });
 
-Cypress.Commands.add('fillCardMonthDetails', () => {
-	cy.clickOnElementUsingXpathwithIndex('//div[@class="sc-kafWEX ihwrOP"]//*[@data-test="expiry"]//*[@class="Select-arrow"]', 0);
-	//cy.wait(1000);
-	cy.clickOnElement('div[aria-label="Jan"]');
-	cy.clickOnElementUsingXpathwithIndex('//div[@class="sc-kafWEX ihwrOP"]//*[@data-test="expiry"]//*[@class="Select-arrow"]', 1);
-	//cy.wait(1000);
-	cy.clickOnElement('div[aria-label="2025"]');
-});
-
 Cypress.Commands.add('selectState', () => {
-	cy.clickOnElementUsingXpath('(//div[@class="sc-kafWEX ihwrOP"] )[2]//*[@class="Select-arrow"]');
+	cy.clickOnElementUsingXpath('//div[@id="shipping_address"]//*[@class="Select-arrow"]');
 	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Alabama"]');
 });
 
 Cypress.Commands.add('stateValue', () => {
-	cy.clickOnElementTextWithForce('Select a state');
+	cy.clickOnElementUsingXpath('//div[@id="billing_address"]//*[@class="Select-arrow"]');
 	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Alabama"]');
 });
 
 Cypress.Commands.add('PayorName', () => {
 	cy.clickOnElement(dispenserPageSelectors.PayorName).type('Max Life')
-	cy.contains('Max Life').click()
+	cy.wait(2000)
+	cy.contains('Max Life',{timeout:10000}).click()
 });
 
 Cypress.Commands.add('ServiseTypePickUpPerson', () => {
 	cy.clickOnElement(dispenserPageSelectors.service)
-	cy.clickOnElement('div[aria-label="Pick Up In Person"]')
+	cy.clickOnElementUsingXpath('//*[text()="Pick Up In Person"]')
 })
 
 Cypress.Commands.add('ServiseTypeCourierService', () => {
 	cy.clickOnElement(dispenserPageSelectors.service)
-	cy.clickOnElement('div[aria-label="Courier Service"]')
+	cy.clickOnElementUsingXpath('//*[text()="Courier Service"]')
 })
 
 Cypress.Commands.add('AttachDocument', () => {
 	cy.clickOnElement('[data-test="edit-document"]')
 	cy.xpath(practicePageSelectors.selectdocument).check({ force: true }).should('be.checked');
-	cy.clickOnElementUsingXpath('//*[@class="modal-dialog"]//*[text()="Select"]'); //Select document
-});
-
-Cypress.Commands.add('AttachHubDocument', () => {
-	cy.xpath('//*[@id="app"]/div/div/div/div[1]/div/div[2]/div[3]/div[4]/div[2]/div/section/span').click();
-	cy.get(practicePageSelectors.selectdocument).check({ force: true }).should('be.checked');
-	cy.xpath('/html/body/div[2]/div[2]/div/div/div[3]/button[1]').click() //submite document
+	cy.clickOnElementUsingXpath('//*[@class="modal-dialog"]//*[text()="Select"]');
 });
 
 Cypress.Commands.add('Timezone', () => {
@@ -408,7 +393,6 @@ Cypress.Commands.add('selectPayorStatus', () => {
 });
 
 Cypress.Commands.add("paste", { prevSubject: true }, (selector, pastePayload) => {
-	// https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event
 	cy.wrap(selector).then($destination => {
 	  const pasteEvent = Object.assign(new Event("paste", { bubbles: true, cancelable: true }), {
 		clipboardData: {
