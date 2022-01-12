@@ -1,6 +1,7 @@
 {
   "name": "cypressautomation",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,7 +9,8 @@
     "test:cli": "npm run delete:reportFolder && cypress run",
     "merge:reports": "mochawesome-merge mochawesome-report/*.json > cypress-combined-report.json",
     "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "record-test": "cypress run --record --key 18415255-c402-40f0-b983-ab9c3bdf3dc4"
   },
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
@@ -38,11 +40,11 @@
     "@auth0/auth0-spa-js": "^1.13.6",
     "@types/bluebird": "^3.5.33",
     "@types/lodash": "^4.14.168",
+    "Faker": "^0.7.2",
     "chai": "^4.3.0",
     "cypress-iframe": "^1.0.1",
     "cypress-skip-test": "^1.0.0",
     "delay": "^5.0.0",
-    "Faker": "^0.7.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "resolve-url": "^0.2.1",
@@ -50,6 +52,5 @@
     "source-map-resolve": "^0.6.0",
     "urix": "^0.1.0",
     "xlsx": "^0.17.0"
-  },
-  "description": ""
-}
+  }
+  }

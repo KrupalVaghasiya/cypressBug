@@ -19,6 +19,13 @@ const lastName = faker.name.lastName();
 const PhoneNumber = faker.phone.phoneNumber();
 const PhoneNumberFormat = faker.phone.phoneNumber();
 const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
+
+const firstName = faker.Name.firstName();
+const ProductName = faker.Name.findName();
+const lastName = faker.Name.lastName();
+const PhoneNumber = faker.PhoneNumber.phoneNumber();
+const PhoneNumberFormat = faker.PhoneNumber.phoneNumber();
+const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
 const Rx_emailAddress = "@mailinator.com";
 const Retail_emailAddress = "@mailinator.com";
 const Compound_emailAddress = "@mailinator.com";
@@ -26,12 +33,18 @@ const Hub_emailAddress = "@mailinator.com";
 
 const Practice_emailAddress = "@mailinator.com";
 const practiceName = "_Practice";
-
 const Rx_dispenserName = faker.name.firstName() + "_RX_Dispensers";
 const Retail_dispenserName = faker.name.firstName() + "_Retail_Dispensers";
 const Compound_dispenserName = faker.name.firstName() + "_Compound_Dispenser";
 const Rx_HUB_dispenserName = faker.name.firstName() + "_hub_Dispensers";
 const UserEmaildispenser = faker.name.firstName() + ".dispenser@mailinator.com";
+
+const Rx_dispenserName = faker.Name.firstName() + "_RX_Dispensers";
+const Retail_dispenserName = faker.Name.firstName() + "_Retail_Dispensers";
+const Compound_dispenserName = faker.Name.firstName() + "_Compound_Dispenser";
+const Rx_HUB_dispenserName = faker.Name.firstName() + "_hub_Dispensers";
+const UserEmaildispenser = faker.Name.firstName() + ".dispenser@mailinator.com";
+
 const UserEmailpractice = ".practice@mailinator.com";
 var num = Math.floor(100000 + Math.random() * 900000)
 num = num.toString().substring(0, 4);

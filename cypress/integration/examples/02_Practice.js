@@ -77,7 +77,6 @@ describe('Create Onetime & Subscription Template and Upload Dropchart Documents'
     cy.SelectDocumentType1()
     cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle1)
     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
-
     //Upload file from Fixtures
     cy.get('[type="file"]').attachFile('Welcome Letter.pdf');
     cy.wait(15000)
@@ -92,7 +91,6 @@ describe('Create Onetime & Subscription Template and Upload Dropchart Documents'
     cy.SelectDocumentType2()
     cy.enterText(practicePageSelectors.DocumentTitle, practiceData.DropchartTitle2)
     cy.clickOnElementUsingXpath(practicePageSelectors.continueButtonId)
-
     //Upload file from Fixtures
     cy.get('[type="file"]').attachFile('Patient Direction.pdf');
     cy.wait(15000)
@@ -113,7 +111,7 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
     cy.PracticeLogin()
   });
 
-  it('Create Rx order Onetime with skip payment', () => {
+  it.only('Create Rx order Onetime with skip payment', () => {
     cy.CreatePatient()
     cy.CreatingRXOnetimelaterpayment()
     cy.verifyUrl('practice/orders/new/completed')

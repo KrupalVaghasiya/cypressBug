@@ -73,7 +73,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   })
 
   it('Creating the Compound order Onetime with skip payment', () => {
-    cy.CreatingCompoundOnetimelaterpayment() 
+    cy.CreatingCompoundOnetimelaterpayment()
   });
 
   it('Cancel Order', () => {
@@ -91,7 +91,7 @@ describe('Create OTC and Compound order subscription with skip payment', () => {
   })
 
   it('Create Compound order Subscription with skip payment', () => {
-    cy.CreatingCompoundSubscriptionLaterPayment() 
+    cy.CreatingCompoundSubscriptionLaterPayment()
   })
 })
 
@@ -105,11 +105,11 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
   })
 
   it('Create OTC order Onetime with Provide Payment', () => {
-    cy.CreatingOTCOnetimePaymentOption() 
+    cy.CreatingOTCOnetimePaymentOption()
   })
 
   it('Create Compound order Onetime with Provide Payment', () => {
-    cy.CreatingCompoundOnetimePaymentOption() 
+    cy.CreatingCompoundOnetimePaymentOption()
   })
 })
 
@@ -119,10 +119,10 @@ describe('Create OTC and Compound order subscription with provide payment', () =
   });
 
   it('Create OTC order Subscription with provide payment', () => {
-    cy.CreateOTCSubscriptionPaymentOption() 
+    cy.CreateOTCSubscriptionPaymentOption()
   })
 
   it('Create Compound order Subscription with provide payment', () => {
-    cy.CreateCompoundSubscriptionPaymentOption() 
+    cy.CreateCompoundSubscriptionPaymentOption()
   })
 });

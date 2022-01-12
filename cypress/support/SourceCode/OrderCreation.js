@@ -9,7 +9,7 @@ const allergiesName = faker.name.firstName() + " Allergies";
 
 // Onetime RX, OTC, And Compound order with skip payment
 Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -57,7 +57,7 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 });
 
 Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button	
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button	
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -106,7 +106,7 @@ Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
 });
 
 Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -163,7 +163,7 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 
 // Onetime RX, OTC, And Cmpound order with Provide payment
 Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -256,7 +256,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 })
 
 Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -347,7 +347,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 });
 
 Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -447,7 +447,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 
 // Subscription RX, OTC, And Compound order with Skip Payment
 Cypress.Commands.add('CreatingRXSubscriptionLaterPayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -475,7 +475,7 @@ Cypress.Commands.add('CreatingRXSubscriptionLaterPayment', () => {
 });
 
 Cypress.Commands.add('CreatingOTCSubscriptionLaterPayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -503,7 +503,7 @@ Cypress.Commands.add('CreatingOTCSubscriptionLaterPayment', () => {
 });
 
 Cypress.Commands.add('CreatingCompoundSubscriptionLaterPayment', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -540,7 +540,7 @@ Cypress.Commands.add('CreatingCompoundSubscriptionLaterPayment', () => {
 
 //Subscription RX, OTC, And Compound order with provide payment
 Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -604,7 +604,7 @@ Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => 
 });
 
 Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -669,7 +669,7 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 });
 
 Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -743,7 +743,7 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 });
 
 Cypress.Commands.add('CreatingRXOrderFromUserAccount', () => {
-	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder).click(); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
