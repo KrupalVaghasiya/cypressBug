@@ -1,7 +1,9 @@
 const practicePageSelectors = {
 
-	CreateOrder: '//*[@class="add_rx"]', // Add Rx button
+	CreateOrder: '.add_rx', // Add Rx button
 	hubAddOrder: '[href="/dispenser/orders/new"]',
+	closeButton: "//button[@type='button' and text()='Close']",
+	submit_CreateOrderButton : '//*[@data-test="ORDER_FLOW_SUBMIT"]',
 	addButtonID: '[label="Add"]', // Add button
 	searchDoctor: 'input[placeholder="Search by Name"]', // search field for doctor
 	mainSearchButton:'[class="search"]', // search button icon

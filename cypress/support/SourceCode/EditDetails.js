@@ -7,16 +7,16 @@ import { loginPageSelectors } from '../PageSelectors/loginPageSelectors.js';
 import { masterCreationPageSelectors } from '../PageSelectors/masterCreationPageSelectors.js';
 
 const faker = require('faker');
-const firstName = faker.Name.firstName();
-const lastName = faker.Name.lastName();
-const emailAddress = faker.Name.firstName() + "@getnada.com";
-const adminEmailAddress = faker.Name.firstName() + "admin@getnada.com";
-const PhoneNumber = faker.PhoneNumber.phoneNumber();
-const PhoneNumberFormat = faker.PhoneNumber.phoneNumber();
-const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
-const template = "Cypress " + faker.Name.firstName() + "_Template";
-const treatmentTemplate = "Cypress " + faker.Name.firstName() + "_treatment_Template";
-const allergiesName = "Cypress " + faker.Name.firstName() + "_Allergies";
+const firstName = faker.name.firstName();
+const lastName = faker.name.lastName();
+const emailAddress = faker.name.firstName() + "@getnada.com";
+const adminEmailAddress = faker.name.firstName() + "admin@getnada.com";
+const PhoneNumber = faker.phone.phoneNumber();
+const PhoneNumberFormat = faker.phone.phoneNumber();
+const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
+const template = "Cypress " + faker.name.firstName() + "_Template";
+const treatmentTemplate = "Cypress " + faker.name.firstName() + "_treatment_Template";
+const allergiesName = "Cypress " + faker.name.firstName() + "_Allergies";
 var num = Math.floor(100000 + Math.random() * 900000)
 num = num.toString().substring(0, 4);
 

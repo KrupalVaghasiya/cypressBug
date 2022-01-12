@@ -52,8 +52,6 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   it('Creating New Patient and create RX order Onetime with skip payment', () => {
     cy.CreatePatient()
     cy.CreatingRXOnetimelaterpayment()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
   })
 
   it('Edit patient details, Approve patient and transfer order', () => {
@@ -68,8 +66,6 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
 
   it('Creating the OTC order Onetime with skip payment', () => {
     cy.CreatingOTCOnetimelaterpayment()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
   });
 
   it('Send Out Of Network', () => {
@@ -77,9 +73,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   })
 
   it('Creating the Compound order Onetime with skip payment', () => {
-    cy.CreatingCompoundOnetimelaterpayment()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreatingCompoundOnetimelaterpayment() 
   });
 
   it('Cancel Order', () => {
@@ -94,14 +88,10 @@ describe('Create OTC and Compound order subscription with skip payment', () => {
 
   it('Create OTC order Subscription with skip payment', () => {
     cy.CreatingOTCSubscriptionLaterPayment()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
   })
 
   it('Create Compound order Subscription with skip payment', () => {
-    cy.CreatingCompoundSubscriptionLaterPayment()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreatingCompoundSubscriptionLaterPayment() 
   })
 })
 
@@ -112,20 +102,14 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
 
   it('Create RX order Onetime with Provide Payment', () => {
     cy.CreatingRXOnetimePaymentOption()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
   })
 
   it('Create OTC order Onetime with Provide Payment', () => {
-    cy.CreatingOTCOnetimePaymentOption()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreatingOTCOnetimePaymentOption() 
   })
 
   it('Create Compound order Onetime with Provide Payment', () => {
-    cy.CreatingCompoundOnetimePaymentOption()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreatingCompoundOnetimePaymentOption() 
   })
 })
 
@@ -135,14 +119,10 @@ describe('Create OTC and Compound order subscription with provide payment', () =
   });
 
   it('Create OTC order Subscription with provide payment', () => {
-    cy.CreateOTCSubscriptionPaymentOption()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreateOTCSubscriptionPaymentOption() 
   })
 
   it('Create Compound order Subscription with provide payment', () => {
-    cy.CreateCompoundSubscriptionPaymentOption()
-    cy.clickOnElementUsingText(loginData.createOrder, practiceData.buttonTag); // click on submit button
-    cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
+    cy.CreateCompoundSubscriptionPaymentOption() 
   })
 });

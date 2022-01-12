@@ -5,10 +5,14 @@ import { dispenserPageSelectors } from '../PageSelectors/dispenserPageSelectors.
 import { loginPageSelectors } from '../PageSelectors/loginPageSelectors'
 
 const faker = require('faker');
-const allergiesName = faker.Name.firstName() + " Allergies";
+const allergiesName = faker.name.firstName() + " Allergies";
 
 // Onetime RX, OTC, And Compound order with skip payment
 Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
+		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
+	})
 	cy.searchDoctors(); // search for the doctor
 	cy.clickOnElementUsingXpath(practicePageSelectors.nextButtonId); // click on the next button
 	const path = 'practice/orders/new';
@@ -29,6 +33,7 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -46,12 +51,13 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 	})
 });
 
 Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button	
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button	
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -75,6 +81,7 @@ Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.OTC_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 
 		else {
@@ -93,12 +100,13 @@ Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.OTC_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 	})
 });
 
 Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder).first(); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -122,6 +130,7 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.Compound_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -146,6 +155,7 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 				cy.AttachDocument(); // Attach Dropchart Documents
 				cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 				cy.verifyTextToBePresent(practiceData.Compound_productType); // verify the product type 
+				cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 			})
 		}
 	})
@@ -153,7 +163,7 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 
 // Onetime RX, OTC, And Cmpound order with Provide payment
 Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -188,6 +198,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 			cy.ServiseTypePickUpPerson() // Select Delivery type as Pick Up In Person
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -219,6 +230,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 					cy.ServiseTypePickUpPerson() // Select Delivery type as Pick Up In Person
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 				else {
 					cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
@@ -236,6 +248,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 					cy.ServiseTypePickUpPerson() // Select Delivery type as Pick Up In Person
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 			})
 		}
@@ -243,7 +256,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 })
 
 Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -277,6 +290,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -308,6 +322,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 					cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 				else {
 					cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
@@ -324,6 +339,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 					cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 			})
 		}
@@ -331,7 +347,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 });
 
 Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -365,6 +381,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -404,6 +421,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 					cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 				else {
 					cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
@@ -420,6 +438,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 					cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 					cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 					cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+					cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 				}
 			})
 		}
@@ -428,7 +447,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 
 // Subscription RX, OTC, And Compound order with Skip Payment
 Cypress.Commands.add('CreatingRXSubscriptionLaterPayment', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -452,10 +471,11 @@ Cypress.Commands.add('CreatingRXSubscriptionLaterPayment', () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
+	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 });
 
 Cypress.Commands.add('CreatingOTCSubscriptionLaterPayment', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -479,10 +499,11 @@ Cypress.Commands.add('CreatingOTCSubscriptionLaterPayment', () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
+	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 });
 
 Cypress.Commands.add('CreatingCompoundSubscriptionLaterPayment', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -514,11 +535,12 @@ Cypress.Commands.add('CreatingCompoundSubscriptionLaterPayment', () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
+	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 });
 
 //Subscription RX, OTC, And Compound order with provide payment
 Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -578,10 +600,11 @@ Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => 
 		}
 	})
 	cy.ServiseTypeCourierService() // Select Delivery type as Courier Service
+	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 });
 
 Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -623,6 +646,7 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
@@ -639,12 +663,13 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 	})
 });
 
 Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -695,6 +720,7 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
@@ -711,12 +737,13 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 	})
 });
 
 Cypress.Commands.add('CreatingRXOrderFromUserAccount', () => {
-	cy.clickOnElementUsingXpath(practicePageSelectors.CreateOrder); // click on add Rx button
+	cy.get(practicePageSelectors.CreateOrder); // click on add Rx button
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
 	})
@@ -739,6 +766,7 @@ Cypress.Commands.add('CreatingRXOrderFromUserAccount', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 		else {
 			cy.clickOnElementUsingText(practiceData.SelectButton, practiceData.buttonTag); // click on the create new Rx
@@ -755,6 +783,7 @@ Cypress.Commands.add('CreatingRXOrderFromUserAccount', () => {
 			cy.AttachDocument(); // Attach Dropchart Documents
 			cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 			cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+			cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		}
 	})
 })
