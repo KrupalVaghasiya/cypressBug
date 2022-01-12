@@ -4,6 +4,8 @@ const practicePageSelectors = {
 	hubAddOrder: '[href="/dispenser/orders/new"]',
 	closeButton: "//button[@type='button' and text()='Close']",
 	submit_CreateOrderButton : '//*[@data-test="ORDER_FLOW_SUBMIT"]',
+	createOnetimeOrder:'[data-test="ORDER_FLOW_CREATE_NEW_RX"]',
+	createSubscriptionOrder: '[data-test="ORDER_FLOW_CREATE_CUSTOM_PLAN"]',
 	addButtonID: '[label="Add"]', // Add button
 	searchDoctor: 'input[placeholder="Search by Name"]', // search field for doctor
 	mainSearchButton:'[class="search"]', // search button icon

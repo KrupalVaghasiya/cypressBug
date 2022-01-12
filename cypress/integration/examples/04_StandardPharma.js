@@ -210,7 +210,7 @@ describe('Create RX, OTC and Compound order subscription with provide payment', 
     cy.StandardPharmaLogin()
   });
 
-  it('Create RX order Subscription with Provide Payment', () => {
+  it.only('Create RX order Subscription with Provide Payment', () => {
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
   })
 })
@@ -253,11 +253,11 @@ describe('Login to Standard Pharma ', () => {
     cy.CompleteOrder()
   })
 
-  it('Create OTC order Subscription with provide payment', () => {
+  it.only('Create OTC order Subscription with provide payment', () => {
     cy.CreateOTCSubscriptionPaymentOption()
   })
 
-  it('Create Compound order Subscription with provide payment', () => {
+  it.only('Create Compound order Subscription with provide payment', () => {
     cy.CreateCompoundSubscriptionPaymentOption()
   })
 });

@@ -91,7 +91,6 @@ const dispenserPageSelectors = {
 	openOrderDropDownId: '//*[text()="Open Orders"]',
 	pendingOrderDropDownId: '//*[text()="Pending Orders"]',
 	SelectButton: '//*[text()="Select"]',
-	hubSubscription: '[data-test="ORDER_FLOW_CREATE_CUSTOM_PLAN"]',
 	PayorName: 'input[placeholder="Search by Payor name"]',
 	PayorAccountNo: 'input[name="account_number"]',
 	PayorGroupNo: 'input[name="group_number"]',
