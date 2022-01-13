@@ -255,7 +255,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
     cy.PracticeLogin()
   });
 
-  it.only('Create RX order Subscription with Provide Payment', () => {
+  it('Create RX order Subscription with Provide Payment', () => {
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -268,7 +268,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
     })
   })
 
-  it.only('Create OTC order Subscription with Provide Payment', () => {
+  it('Create OTC order Subscription with Provide Payment', () => {
     cy.CreateOTCSubscriptionPaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -281,7 +281,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
     })
   })
 
-  it.only('Create Compound order Subscription with Provide Payment', () => {
+  it('Create Compound order Subscription with Provide Payment', () => {
     cy.CreateCompoundSubscriptionPaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -300,11 +300,9 @@ describe('Create Order from Technician User account', () => {
     cy.TechnicianUserLogin()
   })
 
-  it('Create Rx order Onetime with skip payment', () => {
-    cy.CreatingRXOrderFromUserAccount()
-    cy.clickOnElementUsingXpath(practicePageSelectors.sendToQueue); // click on submit button
-    cy.wait(3000)
-    cy.xpath('//div[1]/div/div[1]/div[3]/text()').then(function ($ordernumber) {
+  it.only('Create Rx order Onetime with skip payment', () => {
+    cy.CreatingRXOnetimelaterpayment()
+    cy.xpath('//div[1]/div/div[1]/div[3]/text()',{timeout:30000}).then(function ($ordernumber) {
       const text = $ordernumber.text()
       cy.readFile("cypress/fixtures/Data.json").then((profile) => {
         profile.OrderNumber = text

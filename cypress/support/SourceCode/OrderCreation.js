@@ -535,27 +535,3 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 		}
 	})
 });
-
-Cypress.Commands.add('CreatingRXOrderFromUserAccount', () => {
-	cy.clickOnElement(practicePageSelectors.CreateOrder).click(); // click on add Rx button
-	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
-		cy.searchPatients(practicePageSelectors.searchPatient1, profile.Patient_fullName);
-	})
-	cy.searchDoctors(); // search for the doctor
-	cy.clickOnElementUsingXpath(practicePageSelectors.nextButtonId); // click on the next button
-	cy.clickOnElement(practicePageSelectors.createSubscriptionOrder)
-	cy.searchMedicine() //search for Medicine
-	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
-	cy.Changequantity(); // click on edit content dropdown
-	cy.get(dispenserPageSelectors.editContents).last().click()
-		.type('{downarrow}{enter}').click()
-	cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
-	cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
-	cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
-	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
-	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-	cy.AttachDocument(); // Attach Dropchart Documents
-	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
-	cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
-	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
-})
