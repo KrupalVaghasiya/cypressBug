@@ -22,13 +22,6 @@ const PhoneNumber = faker.phone.phoneNumber();
 const allergiesName = "Cypress " + faker.name.firstName() + "_Allergies";
 const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
 
-const firstName = faker.Name.firstName();
-const lastName = faker.Name.lastName();
-const emailAddress = firstName + "@mailinator.com";
-const PhoneNumber = faker.PhoneNumber.phoneNumber();
-const allergiesName = "Cypress " + faker.Name.firstName() + "_Allergies";
-const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
-
 const identity_card = faker.random.number(10, 50)
 const street_1 = faker.address.streetAddress()
 const street_2 = faker.address.secondaryAddress()
@@ -161,25 +154,24 @@ describe('Update Patient details', () => {
         cy.enterText(patientPageSelectors.nameOnCard, practiceData.nameOnCard);
         cy.enterText(patientPageSelectors.nameOnCard, practiceData.nameOnCard); // enter the name as on card
         cy.iframe('iframe[src*="uat.freedompay.com"]')
-        .find(patientPageSelectors.CardNumber)
-        .type(practiceData.CardNumber)
+            .find(patientPageSelectors.CardNumber)
+            .type(practiceData.CardNumber)
         cy.iframe('iframe[src*="uat.freedompay.com"]')
-        .find(patientPageSelectors.ExperientionDate)
-        .type("01/25")
+            .find(patientPageSelectors.ExperientionDate)
+            .type("01/25")
         cy.iframe('iframe[src*="uat.freedompay.com"]')
-        .find(patientPageSelectors.cvvCode)
-        .type(practiceData.cardSecurityPin)
+            .find(patientPageSelectors.cvvCode)
+            .type(practiceData.cardSecurityPin)
         cy.iframe('iframe[src*="uat.freedompay.com"]')
-        .find(patientPageSelectors.PostalCode)
-        .type(dispenserData.zipCode)
+            .find(patientPageSelectors.PostalCode)
+            .type(dispenserData.zipCode)
         cy.iframe('iframe[src*="uat.freedompay.com"]')
-        .contains(loginData.saveButtonName)
-        .click()
-        if(cy.verifyTextToBePresent("You have successfully saved your updates."))
-        {
+            .contains(loginData.saveButtonName)
+            .click()
+        if (cy.verifyTextToBePresent("You have successfully saved your updates.")) {
             cy.clickOnElementUsingText(practiceData.continueButton)
         }
-        else{
+        else {
             print("Card Detaills not saved")
         }
     })
@@ -293,7 +285,7 @@ describe('Complete Payment Details, Edit plans date and Cancel plan from patient
     });
 
     it('Complete Payment Details from Home Screen', () => {
-        if(cy.verifyTextToBePresent(PatientData.HomeNotification)){
+        if (cy.verifyTextToBePresent(PatientData.HomeNotification)) {
             cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.CompletePaymentButton, 0)
             cy.clearText(patientPageSelectors.Address1)
             cy.enterText(patientPageSelectors.Address1, street_1)
@@ -306,22 +298,22 @@ describe('Complete Payment Details, Edit plans date and Cancel plan from patient
             cy.clearText(patientPageSelectors.zipCodeID)
             cy.enterText(patientPageSelectors.zipCodeID, zipCode)
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-            .find(patientPageSelectors.CardNumber)
-            .type(practiceData.CardNumber)
+                .find(patientPageSelectors.CardNumber)
+                .type(practiceData.CardNumber)
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-            .find(patientPageSelectors.ExperientionDate)
-            .type("01/25")
+                .find(patientPageSelectors.ExperientionDate)
+                .type("01/25")
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-            .find(patientPageSelectors.cvvCode)
-            .type(practiceData.cardSecurityPin)
+                .find(patientPageSelectors.cvvCode)
+                .type(practiceData.cardSecurityPin)
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-            .find(patientPageSelectors.PostalCode)
-            .type(dispenserData.zipCode)
+                .find(patientPageSelectors.PostalCode)
+                .type(dispenserData.zipCode)
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-            .contains(loginData.saveButtonName)
-            .click()
+                .contains(loginData.saveButtonName)
+                .click()
         }
-        else{
+        else {
             cy.verifyTextToBePresent(PatientData.CheckDetailsPending)
             cy.log("Details pending order not found!")
         }
@@ -332,17 +324,16 @@ describe('Complete Payment Details, Edit plans date and Cancel plan from patient
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.activePlans, 0)
         cy.clickOnElementUsingXpath(patientPageSelectors.ManagePlan)
         cy.clickOnElement(patientPageSelectors.DatePicker)
-        cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.Date,1)
+        cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.Date, 1)
         cy.wait(1000)
         cy.xpath(patientPageSelectors.UpdateButton).then(($btn) => {
-            if($btn.is(':enabled'))
-            {
+            if ($btn.is(':enabled')) {
                 cy.clickOnElementUsingXpath(patientPageSelectors.UpdateButton)
                 cy.clickOnElementUsingText(practiceData.continueButton)
             }
-            else{
+            else {
                 cy.clickOnElement(patientPageSelectors.DatePicker)
-                cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.nextDate,0)
+                cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.nextDate, 0)
                 cy.clickOnElementUsingXpath(patientPageSelectors.UpdateButton)
                 cy.clickOnElementUsingText(practiceData.continueButton)
             }

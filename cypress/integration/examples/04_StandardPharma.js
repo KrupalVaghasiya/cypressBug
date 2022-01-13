@@ -16,18 +16,18 @@ describe('Forgot Password From Standard Pharma ', () => {
   it('Forgot Password', () => {
     cy.StandardPharmaForgotPassword()
   })
-});
 
-it('Verify Forgot password mail', () => {
-  cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
-  cy.fixture('Data').then((profile) => {
-    cy.enterText(patientPageSelectors.txtMailID, profile.RX_Dispenser_Email)
+  it('Verify Forgot password mail', () => {
+    cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
+    cy.fixture('Data').then((profile) => {
+      cy.enterText(patientPageSelectors.txtMailID, profile.RX_Dispenser_Email)
+    })
+    cy.VerifyForgetPasswordEmail()
+  });
+
+  it("Set Password", () => {
+    cy.SetPassword()
   })
-  cy.VerifyForgetPasswordEmail()
-});
-
-it("Set Password", () => {
-  cy.SetPassword()
 })
 
 describe('Login to Standard Pharma ', () => {
@@ -91,11 +91,11 @@ describe('Login to Standard Pharma ', () => {
   })
 
   it('Creating the OTC order Onetime with skip payment', () => {
-    cy.CreatingOTCOnetimelaterpayment() 
+    cy.CreatingOTCOnetimelaterpayment()
   });
 
   it('Creating the Compound order Onetime with skip payment', () => {
-    cy.CreatingCompoundOnetimelaterpayment() 
+    cy.CreatingCompoundOnetimelaterpayment()
   });
 })
 
@@ -144,11 +144,11 @@ describe('Login to Standard Pharma ', () => {
   })
 
   it('Create OTC order Subscription with skip payment', () => {
-    cy.CreatingOTCSubscriptionLaterPayment() 
+    cy.CreatingOTCSubscriptionLaterPayment()
   })
 
   it('Create Compound order Subscription with skip payment', () => {
-    cy.CreatingCompoundSubscriptionLaterPayment() 
+    cy.CreatingCompoundSubscriptionLaterPayment()
   })
 })
 

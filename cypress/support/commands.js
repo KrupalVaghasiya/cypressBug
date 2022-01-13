@@ -39,7 +39,6 @@ const COMMAND_DELAY = 600;
 for (const command of ['visit', 'click', 'trigger', 'type', 'clear', 'reload', 'contains']) {
 	Cypress.Commands.overwrite(command, (originalFn, ...args) => {
 		const origVal = originalFn(...args);
-
 		return new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(origVal);
@@ -61,7 +60,7 @@ Cypress.Commands.add('verifyTitle', (data, log) => {
 });
 
 Cypress.Commands.add('enterText', (loc, data, log) => {
-	cy.get(loc, { timeout: 30000 }).type(data, { delay: 50 });
+	cy.get(loc, { timeout: 30000 }).type(data);
 });
 
 Cypress.Commands.add('clearText', (loc, log) => {
@@ -85,20 +84,12 @@ Cypress.Commands.add('clickOnElementWithIndexText', (loc, index, data) => {
 });
 
 Cypress.Commands.add('verifyUrl', (data, log) => {
-	cy.url({timeout:30000}).should('contains', data);
+	cy.url({ timeout: 30000 }).should('contains', data);
 });
 
 Cypress.Commands.add('verifyTextToBePresent', (data, log) => {
 	//cy.wait(500);
 	cy.contains(data, { timeout: 30000 }).should('be.exist');
-});
-
-Cypress.Commands.add('verifyTextNotToBePresent', (data, selector, log) => {
-	cy.contains(selector, data, { timeout: 30000 }).should('not.be.exist');
-});
-
-Cypress.Commands.add('verifyTableData', (loc, data, index, log) => {
-	cy.get(loc, { timeout: 30000 }).eq(index).should('contains', data);
 });
 
 Cypress.Commands.add('clickOnElementUsingText', (data, selector, log) => {
@@ -109,20 +100,11 @@ Cypress.Commands.add('clickOnHubElementUsingText', () => {
 	cy.contains('Select', { timeout: 30000 }).last().click();
 });
 
-Cypress.Commands.add('clickOnElementUsingTextWithIndex', (data, selector, index, log) => {
-	cy.contains(selector, data, { timeout: 30000 }).click({ force: true });
-});
-
 Cypress.Commands.add('clickOnElementTextWithForce', (data, log) => {
 	cy.contains(data, { timeout: 30000 }).click({ force: true });
 });
 
-Cypress.Commands.add('verifyDisabledElementWithData', (data, log) => {
-	cy.contains(data, { timeout: 30000 }).should('be.disabled');
-});
-
 Cypress.Commands.add('clickOnElementUsingXpath', (loc, log) => {
-	//cy.wait(1000);
 	cy.xpath(loc, { timeout: 30000 }).click({ force: true });
 });
 
@@ -134,25 +116,8 @@ Cypress.Commands.add('verifyElementExists', (loc, log) => {
 	cy.get(loc, { timeout: 30000 }).should('be.exist');
 });
 
-Cypress.Commands.add('clickOnElemenWithText', (loc, Data, log) => {
-	cy.get(loc, { timeout: 30000 }).should('contains', data).click({ force: true });
-});
-
-Cypress.Commands.add('verifyPageName', (data, log) => {
-	cy.verifyTextToBePresent(data);
-});
-
 Cypress.Commands.add('successFullOrderMessage', (data, log) => {
 	cy.verifyTextToBePresent(data);
-});
-
-Cypress.Commands.add('checkElement', (loc, log) => {
-	cy.get(loc, { timeout: 30000 }).check({ force: true });
-});
-
-Cypress.Commands.add('selectDropdownValue', (text, type, log) => {
-	cy.clickOnElementTextWithForce(text);
-	cy.clickOnElementWithIndex(`div[aria-label="${type}"]`);
 });
 
 Cypress.Commands.add('FindRx', () => {
@@ -160,34 +125,16 @@ Cypress.Commands.add('FindRx', () => {
 	cy.get('div[aria-label="RX"]', { timeout: 30000 }).click()
 });
 
-Cypress.Commands.add('selectDropdownValueWithSelector', (text, selector, type, log) => {
-	cy.clickOnElementUsingText(text, selector);
-	cy.clickOnElementWithIndex(`div[aria-label="${type}"]`, 0);
-});
-
 Cypress.Commands.add('clickOnElementUsingXpathwithIndex', (loc, index, log) => {
 	cy.xpath(loc, { timeout: 30000 }).eq(index).click({ force: true });
 });
-
-Cypress.Commands.add('clickOnFirstElementUsingXpath', (loc, log) => {
-	cy.xpath(loc, { timeout: 30000 }).first().click({ force: true });
-});
-
-Cypress.Commands.add('scrollThePage', (loc, log) => {
-	cy.scrollTo('bottom');
-});
-
-Cypress.Commands.add('verifyTextPresentUsingElement', (loc, data, log) => {
-	cy.get(loc).should('contains', data);
-});
-
 
 //Practice custome command
 Cypress.Commands.add('searchPatients', (loc, data) => {
 	cy.wait(1000);
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.get(loc, { timeout: 30000 })
-			.type(data).wait(3000).clickOnElementTextWithForce(profile.patientNameDOB, { delay: 100 });
+			.type(data).wait(3000).clickOnElementTextWithForce(profile.patientNameDOB);
 	})
 });
 
@@ -196,36 +143,19 @@ Cypress.Commands.add('searchDoctors', () => {
 	cy.fixture('Data').then((profile) => {
 		cy.get(practicePageSelectors.searchDoctor)
 			.click()
-			.type(profile.PracticeName, { delay: 200 })
+			.type(profile.PracticeName)
 			.wait(2000)
 			.type('{downarrow}{enter}');
 	})
 });
 
-Cypress.Commands.add('verifyAccountVerificationMessage', () => {
-	cy.verifyTextToBePresent(data);
-});
-
-Cypress.Commands.add('verifyExistingTemplates', (data) => {
-	cy.verifyTextToBePresent(data);
-});
-
-Cypress.Commands.add('verifyOrderConfirmationMessage', (data) => {
-	cy.verifyTextToBePresent(data);
-});
-
-Cypress.Commands.add('searchForMedicine', (loc, data, index) => {
-	cy.get(loc, { timeout: 30000 }).click().type(data + '{downarrow}{enter}', { delay: 100 });
-});
-
 Cypress.Commands.add('searchForTemplateMedicine', () => {
 	cy.get('[placeholder="Search for a Product"]').click()
 	cy.contains('100 Rx').click()
-	//.type(data+'{downarrow}{enter}',{ delay: 600 });
 });
 
 Cypress.Commands.add('findElementWithIndexAndEnterText', (loc, data, index) => {
-	cy.get(loc, { timeout: 30000 }).eq(index).type(data, { delay: 50 });
+	cy.get(loc, { timeout: 30000 }).eq(index).type(data);
 });
 
 Cypress.Commands.add('clickOnElementWithIndex', (index, loc, log) => {
@@ -243,15 +173,7 @@ Cypress.Commands.add('AddRefills', () => {
 });
 
 Cypress.Commands.add('enterTextInFieldwithEnter', (loc, data) => {
-	cy.get(loc).clear().type(data + '{enter}', { delay: 50 });
-});
-
-Cypress.Commands.add('selectExistinAdmin', (loc) => {
-	cy.get(loc).type('{downarrow}{enter}');
-});
-
-Cypress.Commands.add('editContentOfProduct', () => {
-	cy.clickOnElement('div[aria-label="2"]');
+	cy.get(loc).clear().type(data + '{enter}');
 });
 
 Cypress.Commands.add('SearchDoctor', () => {
@@ -323,7 +245,7 @@ Cypress.Commands.add('stateValue', () => {
 Cypress.Commands.add('PayorName', () => {
 	cy.clickOnElement(dispenserPageSelectors.PayorName).type('Max Life')
 	cy.wait(2000)
-	cy.contains('Max Life',{timeout:10000}).click()
+	cy.contains('Max Life', { timeout: 10000 }).click()
 });
 
 Cypress.Commands.add('ServiseTypePickUpPerson', () => {
@@ -370,42 +292,38 @@ Cypress.Commands.add('userselect', () => {
 
 Cypress.Commands.add('selectPayorTypeInsurance', () => {
 	cy.clickOnElementTextWithForce('Select...');
-	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Insurance"]');
 });
 
 Cypress.Commands.add('selectPayorTypeCash', () => {
 	cy.clickOnElementTextWithForce('Select...');
-	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Cash"]');
 });
 
 Cypress.Commands.add('selectPayorTypeCoupon', () => {
 	cy.clickOnElementTextWithForce('Select...');
-	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Coupon"]');
 });
 
 Cypress.Commands.add('selectPayorStatus', () => {
 	cy.clickOnElementTextWithForce('Select...');
-	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Active"]');
 });
 
 Cypress.Commands.add("paste", { prevSubject: true }, (selector, pastePayload) => {
 	cy.wrap(selector).then($destination => {
-	  const pasteEvent = Object.assign(new Event("paste", { bubbles: true, cancelable: true }), {
-		clipboardData: {
-		  getData: () => pastePayload
-		}
-	  });
-	  $destination[0].dispatchEvent(pasteEvent);
+		const pasteEvent = Object.assign(new Event("paste", { bubbles: true, cancelable: true }), {
+			clipboardData: {
+				getData: () => pastePayload
+			}
+		});
+		$destination[0].dispatchEvent(pasteEvent);
 	});
-  });
+});
 
-  Cypress.Commands.add('getIframe', (iframe) => {
-    return cy.get(iframe)
-        .its('0.contentDocument.body')
-        .should('be.visible')
-        .then(cy.wrap);
+Cypress.Commands.add('getIframe', (iframe) => {
+	return cy.get(iframe)
+		.its('0.contentDocument.body')
+		.should('be.visible')
+		.then(cy.wrap);
 })

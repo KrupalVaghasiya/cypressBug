@@ -49,7 +49,7 @@ Cypress.Commands.add('EditAccountDetails', () => {
 	cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
 	cy.clickOnElementUsingXpath(practicePageSelectors.HubLicence)
 	cy.clearText(masterCreationPageSelectors.resellerLicsenceNo_Id)
-	cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id,num)
+	cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, num)
 	cy.clickOnElementUsingText(loginData.saveButtonName)
 	cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
 });
@@ -94,8 +94,8 @@ Cypress.Commands.add('EditPatient', () => {
 	cy.enterText(practicePageSelectors.phoneNumber, PhoneNumber); //enter phone number of patient
 	cy.clickOnElementUsingXpath(practicePageSelectors.addAllergiesButton);// click on the edit button for add allergies
 	cy.clearText(practicePageSelectors.allergiesTextBox)
-  	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox,allergiesName); // enter allergy name
- 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
+	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
+	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.clearText(loginPageSelectors.addressLine1)
 	cy.enterText(loginPageSelectors.addressLine1, dispenserData.changedShippingAdderss); // enter shipping details
 	cy.clearText(loginPageSelectors.cityId)

@@ -49,30 +49,30 @@ Cypress.Commands.add('OnetimePaymentOptionValidation', () => {
 	cy.searchMedicine() //search for Medicine
 	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
 	cy.clickOnElementUsingText(practiceData.providePaymentName, practiceData.buttonTag); // click on Provide payment button
-	//cy.verifyElementExists(dispenserPageSelectors.cardDetailsNameInput); // enter the name as on card
-	//cy.enterText(dispenserPageSelectors.cardDetailsCardNoInput, "86587496854568"); // enter credit card number
-	//cy.verifyElementExists(dispenserPageSelectors.cardDetailsSecurityCodeInput); // enter security pin number
-	//cy.enterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.shippingAdderss, "Enter shipping address"); // enter shipping details
-	//cy.enterText(dispenserPageSelectors.cardDetailsCityField, dispenserData.cityName); // enter city name
-	//cy.selectState(); // select state
-	//cy.enterText(dispenserPageSelectors.cardDetailsZipCodeField, dispenserData.zipCode); // enter country zip code
-	//cy.clickOnElementUsingXpath(dispenserPageSelectors.billingAddressCheckBox); // click on the check box
-	//cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.billingAdderss, 1, "Enter shipping address"); // enter shipping details
-	//cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsCityField, dispenserData.cityName, 1); // enter city name 
-	//cy.selectState(); // select state 
-	//cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsZipCodeField, dispenserData.billingZipCode, 1); // enter country zip code
+	cy.verifyElementExists(dispenserPageSelectors.cardDetailsNameInput); // enter the name as on card
+	cy.enterText(dispenserPageSelectors.cardDetailsCardNoInput, "86587496854568"); // enter credit card number
+	cy.verifyElementExists(dispenserPageSelectors.cardDetailsSecurityCodeInput); // enter security pin number
+	cy.enterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.shippingAdderss, "Enter shipping address"); // enter shipping details
+	cy.enterText(dispenserPageSelectors.cardDetailsCityField, dispenserData.cityName); // enter city name
+	cy.selectState(); // select state
+	cy.enterText(dispenserPageSelectors.cardDetailsZipCodeField, dispenserData.zipCode); // enter country zip code
+	cy.clickOnElementUsingXpath(dispenserPageSelectors.billingAddressCheckBox); // click on the check box
+	cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.billingAdderss, 1, "Enter shipping address"); // enter shipping details
+	cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsCityField, dispenserData.cityName, 1); // enter city name 
+	cy.selectState(); // select state 
+	cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsZipCodeField, dispenserData.billingZipCode, 1); // enter country zip code
 	cy.PayorName(); // Select Payor from dropdown
-	//cy.enterText(dispenserPageSelectors.PayorAccountNo, dispenserData.PayorAccNo) // Enter Insurance account number
-	//cy.enterText(dispenserPageSelectors.PayorGroupNo, dispenserData.PayorGroupNo) // Enter payor group number
-	//cy.enterText(dispenserPageSelectors.PayorRX_binNo, dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
-	//cy.enterText(dispenserPageSelectors.PayorPC_No, dispenserData.PayorPCnNo) // Enter payor PCN number
-	//cy.enterText(dispenserPageSelectors.PayorPhoneNo, PhoneNumber) // Enter payor phone number
+	cy.enterText(dispenserPageSelectors.PayorAccountNo, dispenserData.PayorAccNo) // Enter Insurance account number
+	cy.enterText(dispenserPageSelectors.PayorGroupNo, dispenserData.PayorGroupNo) // Enter payor group number
+	cy.enterText(dispenserPageSelectors.PayorRX_binNo, dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
+	cy.enterText(dispenserPageSelectors.PayorPC_No, dispenserData.PayorPCnNo) // Enter payor PCN number
+	cy.enterText(dispenserPageSelectors.PayorPhoneNo, PhoneNumber) // Enter payor phone number
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on Continue button
 	cy.verifyTextToBePresent(masterCreationData.InvalidInsurance) // Verify Alert Message
 	cy.clickOnElementTextWithForce(loginData.dismissButton) // Click on Dismiss button
 	cy.verifyTextToBePresent(masterCreationData.PaymentRequiredAlert); // verify the required field on the page
-	//cy.verifyTextToBePresent(practiceData.invalidPhoneNumberMessage); // verify the Invalid phone number field on the page
-	//cy.verifyTextToBePresent(masterCreationData.invalidEmailAlert) // verify the Invalid Email Address field on the page
+	cy.verifyTextToBePresent(practiceData.invalidPhoneNumberMessage); // verify the Invalid phone number field on the page
+	cy.verifyTextToBePresent(masterCreationData.invalidEmailAlert) // verify the Invalid Email Address field on the page
 })
 
 Cypress.Commands.add('EditPatientValidation', () => {
@@ -84,7 +84,7 @@ Cypress.Commands.add('EditPatientValidation', () => {
 	cy.enterText(dispenserPageSelectors.cardDetailsNameInput, practiceData.nameOnCard); // enter the name as on card
 	cy.enterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.shippingAdderss, "Enter shipping address"); // enter shipping details
 	cy.clickOnElementUsingXpath(dispenserPageSelectors.billingAddressCheckBox); // click on the check box
-	cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsAddressField,dispenserData.billingAdderss,1,"Enter shipping address"); // enter shipping details
+	cy.findElementWithIndexAndEnterText(dispenserPageSelectors.cardDetailsAddressField, dispenserData.billingAdderss, 1, "Enter shipping address"); // enter shipping details
 	cy.PayorName(); // Select Payor from dropdown
 	cy.clickOnElementTextWithForce(practiceData.SaveandExitbutton); // click on Save and Exit button
 	cy.verifyTextToBePresent(masterCreationData.RequiredSelection);

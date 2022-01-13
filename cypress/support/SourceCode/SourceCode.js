@@ -116,11 +116,11 @@ Cypress.Commands.add('EditPatientDetails', () => {
 			cy.clearText(dispenserPageSelectors.BillingZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.BillingZipCode, dispenserData.zipCode); // enter country zip code
 			cy.PayorName(); // Select Payor from dropdown
-			cy.enterText(dispenserPageSelectors.PayorAccountNo,dispenserData.PayorAccNo) // Enter Insurance account number
-			cy.enterText(dispenserPageSelectors.PayorGroupNo,dispenserData.PayorGroupNo) // Enter payor group number
-			cy.enterText(dispenserPageSelectors.PayorRX_binNo,dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
-			cy.enterText(dispenserPageSelectors.PayorPC_No,dispenserData.PayorPCnNo) // Enter payor PCN number
-			cy.enterText(dispenserPageSelectors.PayorPhoneNo,PhoneNumber) // Enter payor phone number
+			cy.enterText(dispenserPageSelectors.PayorAccountNo, dispenserData.PayorAccNo) // Enter Insurance account number
+			cy.enterText(dispenserPageSelectors.PayorGroupNo, dispenserData.PayorGroupNo) // Enter payor group number
+			cy.enterText(dispenserPageSelectors.PayorRX_binNo, dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
+			cy.enterText(dispenserPageSelectors.PayorPC_No, dispenserData.PayorPCnNo) // Enter payor PCN number
+			cy.enterText(dispenserPageSelectors.PayorPhoneNo, PhoneNumber) // Enter payor phone number
 			cy.clickOnElementTextWithForce(practiceData.SaveandExitbutton); // click on Save and Exit button
 			cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag); // click on dismiss button
 			cy.clickOnElement(dispenserPageSelectors.backLink) // Click on Back To Order
@@ -140,16 +140,16 @@ Cypress.Commands.add('EditPatientDetails', () => {
 			cy.clearText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode)
 			cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 			cy.clickOnElementUsingXpath(dispenserPageSelectors.billingAddressCheckBox); // click on the check box
-			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressLine1,dispenserData.billingAdderss,1);
-			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressCity,dispenserData.cityName,1); // enter city name 
+			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressLine1, dispenserData.billingAdderss, 1);
+			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressCity, dispenserData.cityName, 1); // enter city name 
 			cy.stateValue(); // select state 
-			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressZipCode,dispenserData.billingZipCode,1); // enter country zip code
+			cy.findElementWithIndexAndEnterText(dispenserPageSelectors.AddressZipCode, dispenserData.billingZipCode, 1); // enter country zip code
 			cy.PayorName(); // Select Payor from dropdown
-			cy.enterText(dispenserPageSelectors.PayorAccountNo,dispenserData.PayorAccNo) // Enter Insurance account number
-			cy.enterText(dispenserPageSelectors.PayorGroupNo,dispenserData.PayorGroupNo) // Enter payor group number
-			cy.enterText(dispenserPageSelectors.PayorRX_binNo,dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
-			cy.enterText(dispenserPageSelectors.PayorPC_No,dispenserData.PayorPCnNo) // Enter payor PCN number
-			cy.enterText(dispenserPageSelectors.PayorPhoneNo,PhoneNumber) // Enter payor phone number
+			cy.enterText(dispenserPageSelectors.PayorAccountNo, dispenserData.PayorAccNo) // Enter Insurance account number
+			cy.enterText(dispenserPageSelectors.PayorGroupNo, dispenserData.PayorGroupNo) // Enter payor group number
+			cy.enterText(dispenserPageSelectors.PayorRX_binNo, dispenserData.PayorRX_binNo) // Enter payor RX_Bin number
+			cy.enterText(dispenserPageSelectors.PayorPC_No, dispenserData.PayorPCnNo) // Enter payor PCN number
+			cy.enterText(dispenserPageSelectors.PayorPhoneNo, PhoneNumber) // Enter payor phone number
 			cy.clickOnElementTextWithForce(practiceData.SaveandExitbutton); // click on Save and Exit button
 			cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag); // click on dismiss button
 			cy.clickOnElement(dispenserPageSelectors.backLink) // Click on Back To Order
@@ -252,28 +252,12 @@ Cypress.Commands.add('ProcessPayment', () => {
 });
 
 Cypress.Commands.add('CreatePostageLabel', () => {
-	//cy.wait(2000)
-	//cy.clickOnElement(practicePageSelectors.patientSearch) // Click on patient search bar
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.enterText(practicePageSelectors.patientSearch, profile.Patient_fullName); // Enter name in search bar
 	})
 	cy.wait(3000)
 	cy.clickOnElement(practicePageSelectors.patientorder) // Click on first order from search results
-
-	//cy.clickOnElementWithIndex(practicePageSelectors.tableData,0); // click on the table data
-	//cy.verifyTextToBePresent(dispenserData.shippingAdderss); //verify the shipping details 
-	//cy.verifyTextToBePresent(dispenserData.cityName); // verify the city name
-	//cy.verifyTextToBePresent(dispenserData.zipCode); // verify the zip code of country
 	cy.clickOnElementUsingXpath(dispenserPageSelectors.createPostageLabelButton); // verify the create costage label
-	//cy.clickOnElementUsingXpath(dispenserPageSelectors.bubbleBoxMailerButton); // click on the radio button
-	//cy.verifyTextToBePresent(dispenserData.shippingAdderss); //verify the shipping details 
-	//cy.verifyTextToBePresent(dispenserData.cityName); // verify the city name
-	//cy.verifyTextToBePresent(dispenserData.zipCode); // verify the zip code of country
-	//cy.clickOnElementWithIndex(dispenserPageSelectors.shippingTo,1); // click on the edit button
-	//cy.clickOnElement(dispenserPageSelectors.cardDetailsAddressField2); // enter shipping details
-	//cy.enterText(dispenserPageSelectors.cardDetailsAddressField2,dispenserData.changedShippingAdderss,"Enter shipping address"); // enter shipping details
-	//cy.clickOnElementUsingXpath(dispenserPageSelectors.updateButtonId); // click on submit button
-	//cy.verifyTextToBePresent(dispenserData.changedShippingAdderss); //verify the shipping details
 	cy.clickOnElementUsingXpath(dispenserPageSelectors.createLabel); // Click on Create label
 	cy.clickOnElementTextWithForce(dispenserData.printLabel) // Click on Print Postage Label
 	cy.clickOnElement(dispenserPageSelectors.crossbuttonId); // Click on Cross button
@@ -283,7 +267,6 @@ Cypress.Commands.add('CreatePostageLabel', () => {
 });
 
 Cypress.Commands.add('ConfirmCourierPickUp', () => {
-	//cy.clickOnElement(practicePageSelectors.patientSearch) // Click on patient search bar
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.enterText(practicePageSelectors.patientSearch, profile.Patient_fullName); // Enter name in search bar
 	})
@@ -294,7 +277,6 @@ Cypress.Commands.add('ConfirmCourierPickUp', () => {
 });
 
 Cypress.Commands.add('confirmPickupPerson', () => {
-	//cy.clickOnElement(practicePageSelectors.patientSearch) // Click on patient search bar
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.enterText(practicePageSelectors.patientSearch, profile.Patient_fullName); // Enter name in search bar
 	})
@@ -356,7 +338,7 @@ Cypress.Commands.add('OrderSendOutOfNetwork', () => {
 	})
 	cy.wait(3000)
 	cy.clickOnElement(practicePageSelectors.patientorder) // Click on first order from search results
-	cy.get(dispenserPageSelectors.SelectActionButton,{timeout:10000}).click()
+	cy.get(dispenserPageSelectors.SelectActionButton, { timeout: 10000 }).click()
 	cy.wait(2000)
 	cy.xpath('//*[text()="Send out of Network"]').click();
 	cy.enterText(dispenserPageSelectors.ReasonTextbox, dispenserData.OutofNetworkOrderNotes)
