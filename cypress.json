@@ -1,0 +1,17 @@
+{
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  },
+  "video": false,
+  "scrollBehavior": "nearest",
+  "chromeWebSecurity": false,
+  "projectId": "bp9zfb"
+}
