@@ -14,11 +14,8 @@
 /**
  *@type {Cypress.PluginConfig}
  */
-<<<<<<< HEAD
+
 module.exports = (on, config) => {
-=======
- module.exports = (on, config) => {
->>>>>>> origin/master
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }

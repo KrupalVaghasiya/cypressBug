@@ -21,19 +21,13 @@ const PhoneNumberFormat = faker.phone.phoneNumber();
 const insurerPhoneNumber = faker.phone.phoneNumberFormat(1);
 
 
-const Rx_emailAddress = "@mailinator.com";
-const Retail_emailAddress = "@mailinator.com";
-const Compound_emailAddress = "@mailinator.com";
-const Hub_emailAddress = "@mailinator.com";
-
-const Practice_emailAddress = "@mailinator.com";
+const emailAddress = "@mailinator.com";
 const practiceName = "_Practice";
 const Rx_dispenserName = faker.name.firstName() + "_RX_Dispensers";
 const Retail_dispenserName = faker.name.firstName() + "_Retail_Dispensers";
 const Compound_dispenserName = faker.name.firstName() + "_Compound_Dispenser";
 const Rx_HUB_dispenserName = faker.name.firstName() + "_hub_Dispensers";
 const UserEmaildispenser = faker.name.firstName() + ".dispenser@mailinator.com";
-
 
 const UserEmailpractice = ".practice@mailinator.com";
 var num = Math.floor(100000 + Math.random() * 900000)
@@ -112,8 +106,8 @@ describe('Create Hub Dispenser from Master', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Rx_HUB_dispenserName, "Verify dispenser name"); // enter the Rx ub dispenser name
-    cy.enterText(loginPageSelectors.emailField, Rx_HUB_dispenserName + Hub_emailAddress); // enter the Rx Hub dispenser email
-    cy.writeFile('cypress/fixtures/Data.json', { Hub_Dispenser_Name: Rx_HUB_dispenserName, Hub_Dispenser_Email: Rx_HUB_dispenserName + Hub_emailAddress })
+    cy.enterText(loginPageSelectors.emailField, Rx_HUB_dispenserName + emailAddress); // enter the Rx Hub dispenser email
+    cy.writeFile('cypress/fixtures/Data.json', { Hub_Dispenser_Name: Rx_HUB_dispenserName, Hub_Dispenser_Email: Rx_HUB_dispenserName + emailAddress })
     cy.enterText(practicePageSelectors.phoneNumber, PhoneNumber); // enter the phone number
     cy.enterText(practicePageSelectors.faxNumber, PhoneNumber); // enter the fax numbar
     cy.enterText(loginPageSelectors.addressLine1, dispenserData.shippingAdderss); // enter the shipping address
@@ -126,7 +120,7 @@ describe('Create Hub Dispenser from Master', () => {
     cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, masterCreationData.Reseller_License_Number); // enter the licence number
     cy.enterText(masterCreationPageSelectors.adminFirstName, firstName); // enter the first name
     cy.enterText(masterCreationPageSelectors.adminLastName, lastName); // enter the last name
-    cy.enterText(masterCreationPageSelectors.adminEmail, Rx_HUB_dispenserName + Hub_emailAddress); // enter the admin dispenser email
+    cy.enterText(masterCreationPageSelectors.adminEmail, Rx_HUB_dispenserName + emailAddress); // enter the admin dispenser email
     cy.enterText(masterCreationPageSelectors.adminPhone, PhoneNumber); // enter the phone number
     cy.clickOnElementTextWithForce(practiceData.createAccount); // click on create account field // click on the create account button
     cy.successFullOrderMessage(masterCreationData.dispensersCreationMessage); // verify the message
@@ -157,9 +151,9 @@ describe('Create RX Standard Dispenser from Master', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Rx_dispenserName); // enter the dispenser name
-    cy.enterText(loginPageSelectors.emailField, Rx_dispenserName + Rx_emailAddress); // enter the dispenser email id
+    cy.enterText(loginPageSelectors.emailField, Rx_dispenserName + emailAddress); // enter the dispenser email id
     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-      profile.RX_Dispenser_Email = Rx_dispenserName + Rx_emailAddress
+      profile.RX_Dispenser_Email = Rx_dispenserName + emailAddress
       profile.rx_dispenserName = Rx_dispenserName
       cy.writeFile("cypress/fixtures/Data.json", profile);// Write data into Json file
     })
@@ -175,7 +169,7 @@ describe('Create RX Standard Dispenser from Master', () => {
     cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, masterCreationData.Reseller_License_Number); // enter the licence number
     cy.enterText(masterCreationPageSelectors.adminFirstName, firstName); // enter the first name
     cy.enterText(masterCreationPageSelectors.adminLastName, lastName); // enter the last name
-    cy.enterText(masterCreationPageSelectors.adminEmail, Rx_dispenserName + Rx_emailAddress); // enter the admin email
+    cy.enterText(masterCreationPageSelectors.adminEmail, Rx_dispenserName + emailAddress); // enter the admin email
     cy.enterText(masterCreationPageSelectors.adminPhone, PhoneNumber, 'Enter admin phonenumber'); // enter the phone number
     cy.clickOnElementTextWithForce(practiceData.createAccount); // click on create account field // click on the create new account button
     cy.successFullOrderMessage(masterCreationData.dispensersCreationMessage); // verify the message
@@ -206,9 +200,9 @@ describe('Create OTC Standard Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Retail_dispenserName); // enter the dispenser name
-    cy.enterText(loginPageSelectors.emailField, Retail_dispenserName + Retail_emailAddress); // enter the email id
+    cy.enterText(loginPageSelectors.emailField, Retail_dispenserName + emailAddress); // enter the email id
     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-      profile.OTC_Dispenser_Email = Retail_dispenserName + Retail_emailAddress
+      profile.OTC_Dispenser_Email = Retail_dispenserName + emailAddress
       profile.otc_dispenserName = Retail_dispenserName
       cy.writeFile("cypress/fixtures/Data.json", profile); // Write data into json file
     })
@@ -224,7 +218,7 @@ describe('Create OTC Standard Dispenser', () => {
     cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, masterCreationData.Reseller_License_Number); // enter the reseller licence umber
     cy.enterText(masterCreationPageSelectors.adminFirstName, firstName); // enter the first name
     cy.enterText(masterCreationPageSelectors.adminLastName, lastName);  // enter the last name
-    cy.enterText(masterCreationPageSelectors.adminEmail, Retail_dispenserName + Retail_emailAddress); // enter the admin email id
+    cy.enterText(masterCreationPageSelectors.adminEmail, Retail_dispenserName + emailAddress); // enter the admin email id
     cy.enterText(masterCreationPageSelectors.adminPhone, PhoneNumber); // enter the phone number
     cy.clickOnElementTextWithForce(practiceData.createAccount); // click on create account field // click on the create new account button
     cy.successFullOrderMessage(masterCreationData.dispensersCreationMessage); // verify the message
@@ -255,9 +249,9 @@ describe('Create Compound Standard Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Compound_dispenserName); // enter the dispenser name
-    cy.enterText(loginPageSelectors.emailField, Compound_dispenserName + Compound_emailAddress); // enter the email Id
+    cy.enterText(loginPageSelectors.emailField, Compound_dispenserName + emailAddress); // enter the email Id
     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
-      profile.Compound_Dispenser_Email = Compound_dispenserName + Compound_emailAddress
+      profile.Compound_Dispenser_Email = Compound_dispenserName + emailAddress
       profile.compound_dispenserName = Compound_dispenserName
       cy.writeFile("cypress/fixtures/Data.json", profile);
     })
@@ -273,7 +267,7 @@ describe('Create Compound Standard Dispenser', () => {
     cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, masterCreationData.Reseller_License_Number); // enter the licence number
     cy.enterText(masterCreationPageSelectors.adminFirstName, firstName); // enter the first name
     cy.enterText(masterCreationPageSelectors.adminLastName, lastName); // enter the last name
-    cy.enterText(masterCreationPageSelectors.adminEmail, Compound_dispenserName + Compound_emailAddress); // enter the admin email id
+    cy.enterText(masterCreationPageSelectors.adminEmail, Compound_dispenserName + emailAddress); // enter the admin email id
     cy.enterText(masterCreationPageSelectors.adminPhone, PhoneNumber); // enter the phone number
     cy.clickOnElementTextWithForce(practiceData.createAccount); // click on create account field // click on the create new account button
     cy.successFullOrderMessage(masterCreationData.dispensersCreationMessage); // verify the message
@@ -305,10 +299,10 @@ describe('Create Practicer from master account', () => {
     cy.clickOnElementTextWithForce(masterCreationData.practiceDashBoard); // click on the Practice tab
     cy.clickOnElementTextWithForce(loginData.addPractice); // click on the add new practice
     cy.enterText(loginPageSelectors.nameFieldId, firstName + practiceName); // enter the practice name
-    cy.enterText(loginPageSelectors.emailField, firstName + practiceName + Practice_emailAddress); // enter the practice email id
+    cy.enterText(loginPageSelectors.emailField, firstName + practiceName + emailAddress); // enter the practice email id
     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
       profile.PracticeName = firstName
-      profile.Practice_Email = firstName + practiceName + Practice_emailAddress
+      profile.Practice_Email = firstName + practiceName + emailAddress
       cy.writeFile("cypress/fixtures/Data.json", profile);
     })
     cy.enterText(practicePageSelectors.phoneNumber, PhoneNumber); // enter the phone number
@@ -335,7 +329,7 @@ describe('Create Practicer from master account', () => {
     })
     cy.enterText(masterCreationPageSelectors.adminFirstName, firstName); // enter the first name
     cy.enterText(masterCreationPageSelectors.adminLastName, lastName); // enter the last name
-    cy.enterText(masterCreationPageSelectors.adminEmail, firstName + practiceName + Practice_emailAddress); // enter the practice admin email id
+    cy.enterText(masterCreationPageSelectors.adminEmail, firstName + practiceName + emailAddress); // enter the practice admin email id
     cy.enterText(masterCreationPageSelectors.adminPhone, PhoneNumber);
     cy.clickOnElementTextWithForce(practiceData.createAccount); // click on create account field
     cy.successFullOrderMessage(masterCreationData.practiceCreationMessage); // verify the message

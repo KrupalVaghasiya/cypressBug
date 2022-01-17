@@ -112,7 +112,7 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
   });
 
   it('Create Rx order Onetime with skip payment', () => {
-    //cy.CreatePatient()
+    cy.CreatePatient()
     cy.CreatingRXOnetimelaterpayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -135,11 +135,9 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
 
   it('Create OTC order Onetime with skip payment', () => {
     cy.CreatingOTCOnetimelaterpayment()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -150,11 +148,9 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
 
   it('Create Compound order Onetime with skip payment', () => {
     cy.CreatingCompoundOnetimelaterpayment()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -171,11 +167,9 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
 
   it('Create RX order Subscription with Skip payment', () => {
     cy.CreatingRXSubscriptionLaterPayment()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -186,11 +180,9 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
 
   it('Create OTC order Subscription with Skip payment', () => {
     cy.CreatingOTCSubscriptionLaterPayment()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -201,7 +193,6 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
 
   it('Create Compound order Subscription with Skip payment', () => {
     cy.CreatingCompoundSubscriptionLaterPayment()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
@@ -221,11 +212,9 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
 
   it('Create RX order Onetime with Provide Payment', () => {
     cy.CreatingRXOnetimePaymentOption()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -236,11 +225,9 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
 
   it('Create OTC order Onetime with Provide Payment', () => {
     cy.CreatingOTCOnetimePaymentOption()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -251,11 +238,9 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
 
   it('Create Compound order Onetime with Provide Payment', () => {
     cy.CreatingCompoundOnetimePaymentOption()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {
@@ -272,11 +257,9 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
 
   it('Create RX order Subscription with Provide Payment', () => {
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
-
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
       if ($body.text().includes("You're all set!", "An email confirmation has been sent to the patient.")) {
-
         cy.log("Order Created Successfully.")
       }
       else {

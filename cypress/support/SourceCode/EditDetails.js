@@ -7,7 +7,6 @@ import { loginPageSelectors } from '../PageSelectors/loginPageSelectors.js';
 import { masterCreationPageSelectors } from '../PageSelectors/masterCreationPageSelectors.js';
 
 const faker = require('faker');
-<<<<<<< HEAD
 
 const firstName = faker.name.firstName();
 const lastName = faker.name.lastName();
@@ -20,18 +19,6 @@ const template = "Cypress " + faker.name.firstName() + "_Template";
 const treatmentTemplate = "Cypress " + faker.name.firstName() + "_treatment_Template";
 const allergiesName = "Cypress " + faker.name.firstName() + "_Allergies";
 
-=======
-const firstName = faker.Name.firstName();
-const lastName = faker.Name.lastName();
-const emailAddress = faker.Name.firstName() + "@getnada.com";
-const adminEmailAddress = faker.Name.firstName() + "admin@getnada.com";
-const PhoneNumber = faker.PhoneNumber.phoneNumber();
-const PhoneNumberFormat = faker.PhoneNumber.phoneNumber();
-const insurerPhoneNumber = faker.PhoneNumber.phoneNumberFormat(1);
-const template = "Cypress " + faker.Name.firstName() + "_Template";
-const treatmentTemplate = "Cypress " + faker.Name.firstName() + "_treatment_Template";
-const allergiesName = "Cypress " + faker.Name.firstName() + "_Allergies";
->>>>>>> origin/master
 var num = Math.floor(100000 + Math.random() * 900000)
 num = num.toString().substring(0, 4);
 
@@ -62,11 +49,7 @@ Cypress.Commands.add('EditAccountDetails', () => {
 	cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
 	cy.clickOnElementUsingXpath(practicePageSelectors.HubLicence)
 	cy.clearText(masterCreationPageSelectors.resellerLicsenceNo_Id)
-<<<<<<< HEAD
 	cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id, num)
-=======
-	cy.enterText(masterCreationPageSelectors.resellerLicsenceNo_Id,num)
->>>>>>> origin/master
 	cy.clickOnElementUsingText(loginData.saveButtonName)
 	cy.clickOnElementTextWithForce(dispenserData.dismissButton, practiceData.buttonTag) // Click on dismiss button 
 });
@@ -111,13 +94,8 @@ Cypress.Commands.add('EditPatient', () => {
 	cy.enterText(practicePageSelectors.phoneNumber, PhoneNumber); //enter phone number of patient
 	cy.clickOnElementUsingXpath(practicePageSelectors.addAllergiesButton);// click on the edit button for add allergies
 	cy.clearText(practicePageSelectors.allergiesTextBox)
-<<<<<<< HEAD
 	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-=======
-  	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox,allergiesName); // enter allergy name
- 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
->>>>>>> origin/master
 	cy.clearText(loginPageSelectors.addressLine1)
 	cy.enterText(loginPageSelectors.addressLine1, dispenserData.changedShippingAdderss); // enter shipping details
 	cy.clearText(loginPageSelectors.cityId)

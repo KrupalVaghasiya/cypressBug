@@ -9,12 +9,8 @@
     "test:cli": "npm run delete:reportFolder && cypress run",
     "merge:reports": "mochawesome-merge mochawesome-report/*.json > cypress-combined-report.json",
     "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json",
-<<<<<<< HEAD
     "cy:run": "cypress run",
     "record-test": "cypress run --record --key 18415255-c402-40f0-b983-ab9c3bdf3dc4"
-=======
-    "cy:run": "cypress run"
->>>>>>> origin/master
   },
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
@@ -31,10 +27,6 @@
     "cypress": "^8.3.0",
     "cypress-file-upload": "^5.0.2",
     "cypress-mochawesome-reporter": "^2.2.0",
-<<<<<<< HEAD
-=======
-    "cypress-wait-until": "^1.7.1",
->>>>>>> origin/master
     "cypress-xpath": "^1.6.1",
     "faker": "^5.4.0",
     "i": "^0.3.6",
@@ -61,8 +53,4 @@
     "urix": "^0.1.0",
     "xlsx": "^0.17.0"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
