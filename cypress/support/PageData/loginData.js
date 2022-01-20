@@ -1,24 +1,17 @@
 const loginData = {
 
-    Dev_Master_URL: 'https://ibis-dev.droicelabs.us/login/master',
-    Dev_Practice_URL: 'https://ibis-dev.droicelabs.us/login/practice',
-    Dev_Hub_URL: 'https://ibis-dev.droicelabs.us/login/dispenser',
-    Dev_Patient_URL: 'https://ibis-dev.droicelabs.us/patient/login',
-
-    Qa_Master_URL: 'https://ibis-qa.droicelabs.us/login/master',
-    Qa_Practice_URL: 'https://ibis-qa.droicelabs.us/login/practice',
-    Qa_Hub_URL: 'https://ibis-qa.droicelabs.us/login/dispenser',
-    Qa_Patient_URL: 'https://ibis-qa.droicelabs.us/patient/login',
-
-    Client_UAT_MasterURL: 'https://app-v3.legranderx.com/login/master',
-    Client_UAT_PracticeURL: 'https://app-v3.legranderx.com/login/practice',
-    Client_UAT_HubURL: 'https://app-v3.legranderx.com/login/dispenser',
-    Client_UAT_PatientURL: 'https://app-v3.legranderx.com/patient/login',
-
-    Stable_Master_URL: 'https://ibis-stable.droicelabs.us/login/master',
-    Stable_Practice_URL: 'https://ibis-stable.droicelabs.us/login/practice',
-    Stable_Hub_URL: 'https://ibis-stable.droicelabs.us/login/dispenser',
-    Stable_Patient_URL: 'https://ibis-stable.droicelabs.us/patient/login',
+    ProductURL : 'https://ibis-qa.droicelabs.us',
+    OrderAPI: '/api',
+    DispenserURL: '/dispenser',
+    PracticeURL: '/practice',
+    Order: '/orders/',
+    PracticeOrderURL: '/practice/orders/',
+    SubscriptionAPI: '/subscriptions/',
+    
+    Master_URL: '/login/master',
+    Practice_URL: '/login/practice',
+    Hub_URL: '/login/dispenser',
+    Patient_URL: '/patient/login',
 
     MasterEmail: 'master@legranderx.com', // Need to Change Login Here
     PracticeEmail: 'diza.1210@getnada.com', // Need to Change Login Here

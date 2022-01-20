@@ -50,7 +50,8 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   });
 
   it('Creating New Patient and create RX order Onetime with skip payment', () => {
-    cy.CreatePatient()
+    //cy.CreatePatient()
+    cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimelaterpayment()
   })
 
@@ -65,6 +66,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   })
 
   it('Creating the OTC order Onetime with skip payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimelaterpayment()
   });
 
@@ -73,6 +75,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   })
 
   it('Creating the Compound order Onetime with skip payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimelaterpayment()
   });
 
@@ -87,10 +90,12 @@ describe('Create OTC and Compound order subscription with skip payment', () => {
   });
 
   it('Create OTC order Subscription with skip payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingOTCSubscriptionLaterPayment()
   })
 
   it('Create Compound order Subscription with skip payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingCompoundSubscriptionLaterPayment()
   })
 })
@@ -101,14 +106,17 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
   });
 
   it('Create RX order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimePaymentOption()
   })
 
   it('Create OTC order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimePaymentOption()
   })
 
   it('Create Compound order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimePaymentOption()
   })
 })
@@ -119,10 +127,12 @@ describe('Create OTC and Compound order subscription with provide payment', () =
   });
 
   it('Create OTC order Subscription with provide payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreateOTCSubscriptionPaymentOption()
   })
 
   it('Create Compound order Subscription with provide payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreateCompoundSubscriptionPaymentOption()
   })
 });

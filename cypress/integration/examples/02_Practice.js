@@ -113,6 +113,7 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
 
   it('Create Rx order Onetime with skip payment', () => {
     cy.CreatePatient()
+    cy.OnetimePracticeIntercept()
     cy.CreatingRXOnetimelaterpayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -134,6 +135,7 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
   })
 
   it('Create OTC order Onetime with skip payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingOTCOnetimelaterpayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -147,6 +149,7 @@ describe("Create Onetime RX, OTC and Compound order with skip payment ", () => {
   });
 
   it('Create Compound order Onetime with skip payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingCompoundOnetimelaterpayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -166,6 +169,7 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
   });
 
   it('Create RX order Subscription with Skip payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreatingRXSubscriptionLaterPayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -179,6 +183,7 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
   })
 
   it('Create OTC order Subscription with Skip payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreatingOTCSubscriptionLaterPayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -192,6 +197,7 @@ describe("Create Subscription RX, OTC and Compound order with Skip payment ", ()
   })
 
   it('Create Compound order Subscription with Skip payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreatingCompoundSubscriptionLaterPayment()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -211,6 +217,7 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
   });
 
   it('Create RX order Onetime with Provide Payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingRXOnetimePaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -224,6 +231,7 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
   })
 
   it('Create OTC order Onetime with Provide Payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingOTCOnetimePaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -237,6 +245,7 @@ describe("Create Onetime RX, OTC and Compound order with Provide payment ", () =
   })
 
   it('Create Compound order Onetime with Provide Payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingCompoundOnetimePaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -256,6 +265,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
   });
 
   it('Create RX order Subscription with Provide Payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -269,6 +279,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
   })
 
   it('Create OTC order Subscription with Provide Payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreateOTCSubscriptionPaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -282,6 +293,7 @@ describe("Create Subscription RX, OTC and Compound order with provide payment ",
   })
 
   it('Create Compound order Subscription with Provide Payment', () => {
+    cy.SubscriptionPracticeIntercept()
     cy.CreateCompoundSubscriptionPaymentOption()
     cy.verifyUrl('practice/orders/new/completed')
     cy.get("body").then($body => {
@@ -301,6 +313,7 @@ describe('Create Order from Technician User account', () => {
   })
 
   it('Create Rx order Onetime with skip payment', () => {
+    cy.OnetimePracticeIntercept()
     cy.CreatingRXOnetimelaterpayment()
     cy.xpath('//div[1]/div/div[1]/div[3]/text()', { timeout: 30000 }).then(function ($ordernumber) {
       const text = $ordernumber.text()
@@ -328,6 +341,7 @@ describe("Verifying Order In Associate Practice Account", () => {
     cy.clickOnElementUsingXpathwithIndex('//tbody/tr[1]', 0)
     cy.readFile("cypress/fixtures/Data.json").then((profile) => {
       cy.verifyTextToBePresent(profile.OrderNumber)
+      cy.verifyUrl(profile.OrderID)
     })
   })
 })

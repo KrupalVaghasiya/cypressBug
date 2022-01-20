@@ -18,19 +18,26 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 	cy.clickOnElement(practicePageSelectors.createOnetimeOrder)
 	cy.searchMedicine() //search for Medicine
 	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
-	cy.Changequantity(); // click on edit content dropdown
-	cy.get(dispenserPageSelectors.editContents).last().click().then(() => {
-		cy.get('body').type('{downarrow}{enter}').click()
-	})
-	cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
-	cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
-	cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
-	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
-	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-	cy.AttachDocument(); // Attach Dropchart Documents
+	// cy.Changequantity(); // click on edit content dropdown
+	// cy.get(dispenserPageSelectors.editContents).last().click().then(() => {
+	// 	cy.get('body').type('{downarrow}{enter}').click()
+	// })
+	// cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
+	// cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
+	// cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
+	// cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
+	// cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
+	// cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
-	cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+	// cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
+	cy.wait(7000)
+	cy.get('body').then((body) => {
+		if (body.find('div.modal-footer > button').length > 0) {
+			cy.clickOnElementUsingXpath('//div[@class="modal-footer"]//*[text()="Dismiss"]')
+		}
+	})
 });
 
 Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
@@ -56,6 +63,13 @@ Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 	cy.verifyTextToBePresent(practiceData.OTC_productType); // verify the product type 
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
+	cy.wait(7000)
+	cy.get('body').then((body) => {
+		if (body.find('div.modal-footer > button').length > 0) {
+			cy.clickOnElementUsingXpath('//div[@class="modal-footer"]//*[text()="Dismiss"]')
+		}
+	})
 })
 
 
@@ -89,6 +103,7 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 		cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 		cy.verifyTextToBePresent(practiceData.Compound_productType); // verify the product type 
 		cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+		cy.GetOrderID()
 		cy.wait(7000)
 		cy.get('body').then((body) => {
 			if (body.find('div.modal-footer > button').length > 0) {
@@ -125,6 +140,7 @@ Cypress.Commands.add('CreatingRXSubscriptionLaterPayment', () => {
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -159,6 +175,7 @@ Cypress.Commands.add('CreatingOTCSubscriptionLaterPayment', () => {
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -201,6 +218,7 @@ Cypress.Commands.add('CreatingCompoundSubscriptionLaterPayment', () => {
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -221,12 +239,12 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 	cy.searchMedicine() //search for Medicine
 	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
 	cy.Changequantity(); // click on edit content dropdown
-	cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
-	cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
-	cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
-	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
-	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-	cy.AttachDocument(); // Attach Dropchart Documents
+	// cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
+	// cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
+	// cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
+	// cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
+	// cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
+	// cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingXpath(practicePageSelectors.providePaymentID); //click on the provide payment button
 	cy.wait(1000)
 	cy.get('body').then((body) => {
@@ -237,7 +255,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber)
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -250,6 +268,7 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.ServiseTypePickUpPerson() // Select Delivery type as Pick Up In Person
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -276,8 +295,8 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingXpath(practicePageSelectors.providePaymentID); //click on the provide payment button
+	cy.wait(1000)
 	cy.get('body').then((body) => {
-		cy.wait(1000)
 		if (body.find('#card > div > div > div > div > div > a').length > 0) {
 			cy.clickOnElementUsingXpath('//*[text()="Edit"]')
 		}
@@ -285,7 +304,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber); // enter credit card number
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -297,6 +316,7 @@ Cypress.Commands.add('CreatingOTCOnetimePaymentOption', () => {
 	cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -340,7 +360,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber); // enter credit card number
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -352,6 +372,7 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 	cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -359,8 +380,6 @@ Cypress.Commands.add('CreatingCompoundOnetimePaymentOption', () => {
 		}
 	})
 });
-
-
 
 //Subscription RX, OTC, And Compound order with provide payment
 Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => {
@@ -398,7 +417,7 @@ Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => 
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber); // enter credit card number
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -411,6 +430,7 @@ Cypress.Commands.add('CreatingRXSubscriptionPaymentOptionCourierService', () => 
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.ServiseTypeCourierService() // Select Delivery type as Courier Service
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -444,8 +464,8 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
 	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingXpath(practicePageSelectors.providePaymentID); //click on the provide payment button
+	cy.wait(1000)
 	cy.get('body').then((body) => {
-		cy.wait(1000)
 		if (body.find('#card > div > div > div > div > div > a').length > 0) {
 			cy.clickOnElementUsingXpath('//*[text()="Edit"]')
 		}
@@ -453,7 +473,7 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber); // enter credit card number
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -465,6 +485,7 @@ Cypress.Commands.add('CreateOTCSubscriptionPaymentOption', () => {
 	cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {
@@ -508,7 +529,6 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 	cy.clickOnElementUsingXpath(practicePageSelectors.providePaymentID); //click on the provide payment button
 	cy.wait(1000)
 	cy.get('body').then((body) => {
-		cy.wait(1000)
 		if (body.find('#card > div > div > div > div > div > a').length > 0) {
 			cy.clickOnElementUsingXpath('//*[text()="Edit"]')
 		}
@@ -516,7 +536,7 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 	cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 	cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 	cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-	cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber); // enter credit card number
+	cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber); // enter credit card number
 	cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 	cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 	cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -528,6 +548,7 @@ Cypress.Commands.add('CreateCompoundSubscriptionPaymentOption', () => {
 	cy.enterText(dispenserPageSelectors.AddressZipCode, dispenserData.zipCode); // enter country zip code
 	cy.clickOnElementTextWithForce(practiceData.continueButton); // click on continue button
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
+	cy.GetOrderID()
 	const path = 'dispenser/orders/new/review';
 	cy.url().then(($url) => {
 		if ($url.includes(path)) {

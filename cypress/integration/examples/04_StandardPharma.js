@@ -30,18 +30,6 @@ describe('Forgot Password From Standard Pharma ', () => {
   })
 });
 
-it('Verify Forgot password mail', () => {
-  cy.visit(patientPageSelectors.Mailinator, { timeout: 30000 })
-  cy.fixture('Data').then((profile) => {
-    cy.enterText(patientPageSelectors.txtMailID, profile.RX_Dispenser_Email)
-  })
-  cy.VerifyForgetPasswordEmail()
-});
-
-it("Set Password", () => {
-  cy.SetPassword()
-})
-
 describe('Login to Standard Pharma ', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
@@ -62,7 +50,8 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   });
 
   it('Creating New Patient and create RX order Onetime with skip payment', () => {
-    cy.CreatePatient()
+    // cy.CreatePatient()
+    cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimelaterpayment()
   })
 })
@@ -103,10 +92,12 @@ describe('Login to Standard Pharma ', () => {
   })
 
   it('Creating the OTC order Onetime with skip payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimelaterpayment()
   });
 
   it('Creating the Compound order Onetime with skip payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimelaterpayment()
   });
 })
@@ -117,6 +108,7 @@ describe('Create RX, OTC and Compound order subscription with skip payment', () 
   });
 
   it('Create RX order Subscription with Skip payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingRXSubscriptionLaterPayment()
   })
 })
@@ -157,10 +149,12 @@ describe('Login to Standard Pharma ', () => {
   })
 
   it('Create OTC order Subscription with skip payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingOTCSubscriptionLaterPayment()
   })
 
   it('Create Compound order Subscription with skip payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingCompoundSubscriptionLaterPayment()
   })
 })
@@ -171,6 +165,7 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
   });
 
   it('Create RX order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimePaymentOption()
   })
 })
@@ -210,10 +205,12 @@ describe('Process payment and confirm pick up from Standard Pharma ', () => {
   })
 
   it('Create OTC order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimePaymentOption()
   })
 
   it('Create Compound order Onetime with Provide Payment', () => {
+    cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimePaymentOption()
   })
 })
@@ -224,6 +221,7 @@ describe('Create RX, OTC and Compound order subscription with provide payment', 
   });
 
   it('Create RX order Subscription with Provide Payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
   })
 })
@@ -267,10 +265,12 @@ describe('Login to Standard Pharma ', () => {
   })
 
   it('Create OTC order Subscription with provide payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreateOTCSubscriptionPaymentOption()
   })
 
   it('Create Compound order Subscription with provide payment', () => {
+    cy.SubscriptionDispenserIntercept()
     cy.CreateCompoundSubscriptionPaymentOption()
   })
 });

@@ -97,7 +97,7 @@ Cypress.Commands.add('EditPatientDetails', () => {
 			cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 			cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 			cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-			cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber)
+			cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
 			cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 			cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 			cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -129,7 +129,7 @@ Cypress.Commands.add('EditPatientDetails', () => {
 			cy.clearText(dispenserPageSelectors.cardName, practiceData.nameOnCard)
 			cy.enterText(dispenserPageSelectors.cardName, practiceData.nameOnCard); // enter the name as on card
 			cy.clearText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
-			cy.get(dispenserPageSelectors.cardNumber).paste(practiceData.creditCardNumber)
+			cy.enterText(dispenserPageSelectors.cardNumber, practiceData.creditCardNumber)
 			cy.clearText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin)
 			cy.enterText(dispenserPageSelectors.cardSecurityCode, practiceData.cardSecurityPin); // enter security pin number
 			cy.clearText(dispenserPageSelectors.AddressLine1, dispenserData.shippingAdderss)
@@ -376,4 +376,44 @@ Cypress.Commands.add("SetPassword", () => {
 	cy.clickOnElementUsingXpath(loginPageSelectors.SetPassword)
 	cy.verifyTextToBePresent(masterCreationData.PasswordConfirmation)
 	cy.clickOnElement(practicePageSelectors.closeButtonId); // Close button not working
+})
+
+Cypress.Commands.add('OnetimePracticeIntercept', () => {
+	cy.intercept({
+		method: 'POST',
+		url: loginData.ProductURL + loginData.OrderAPI + loginData.PracticeURL + loginData.Order,
+	}).as('ordersCall')
+})
+
+Cypress.Commands.add('OnetimeDispenserIntercept', () => {
+	cy.intercept({
+		method: 'POST',
+		url: loginData.ProductURL + loginData.OrderAPI + loginData.DispenserURL + loginData.Order,
+	}).as('ordersCall')
+})
+
+Cypress.Commands.add('SubscriptionPracticeIntercept', () => {
+	cy.intercept({
+		method: 'POST',
+		url: loginData.ProductURL + loginData.OrderAPI + loginData.PracticeURL + loginData.SubscriptionAPI,
+	}).as('ordersCall')
+})
+
+Cypress.Commands.add('SubscriptionDispenserIntercept', () => {
+	cy.intercept({
+		method: 'POST',
+		url: loginData.ProductURL + loginData.OrderAPI + loginData.DispenserURL + loginData.SubscriptionAPI,
+	}).as('ordersCall')
+})
+
+Cypress.Commands.add('GetOrderID', () => {
+	cy.wait('@ordersCall')
+		.its('response.body')
+		.then((body) => {
+			const bodyData = JSON.parse(JSON.stringify(body))
+			cy.readFile("cypress/fixtures/Data.json").then((profile) => {
+				profile.OrderID = bodyData._id
+				cy.writeFile('cypress/fixtures/Data.json', profile)
+			})
+		})
 })

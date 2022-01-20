@@ -8,7 +8,7 @@ import { practiceData } from '../PageData/practiceData.js';
 import { PatientData } from '../PageData/PatientData.js';
 
 Cypress.Commands.add('MasterLogin', () => {
-	cy.visit(loginData.Qa_Master_URL);
+	cy.visit(loginData.ProductURL + loginData.Master_URL);
 	cy.verifyTitle(loginData.title);
 	cy.enterText(loginPageSelectors.emailField, loginData.MasterEmail, "Enter master email ");
 	cy.enterText(loginPageSelectors.passwordField, loginData.MasterPassword, "Enter Pasword");
@@ -17,7 +17,7 @@ Cypress.Commands.add('MasterLogin', () => {
 })
 
 Cypress.Commands.add('MasterForgotPassword', () => {
-	cy.visit(loginData.Qa_Master_URL);
+	cy.visit(loginData.ProductURL + loginData.Master_URL);
 	cy.clickOnElementUsingXpath(loginData.ForgotPassword) // Click on Forgot Your Password? link
 	cy.clickOnElementUsingText(loginData.submitButtonName)
 	cy.verifyTextToBePresent(masterCreationData.requiredField)
@@ -28,7 +28,7 @@ Cypress.Commands.add('MasterForgotPassword', () => {
 })
 
 Cypress.Commands.add('PracticeLogin', () => {
-	cy.visit(loginData.Qa_Practice_URL);
+	cy.visit(loginData.ProductURL + loginData.Practice_URL);
 	cy.verifyTitle(loginData.title); // verify practicer login page title
 	cy.fixture('Data').then((profile) => {
 		cy.enterText(loginPageSelectors.emailField, profile.Practice_Email); // enter practicer email
@@ -45,7 +45,7 @@ Cypress.Commands.add('PracticeLogin', () => {
 })
 
 Cypress.Commands.add('PracticeForgotPassword', () => {
-	cy.visit(loginData.Qa_Practice_URL);
+	cy.visit(loginData.ProductURL + loginData.Practice_URL);
 	cy.clickOnElementUsingXpath(loginData.ForgotPassword) // Click on Forgot Your Password? link
 	cy.fixture('Data').then((profile) => {
 		cy.get(loginPageSelectors.emailField).last().clear().type(profile.Practice_Email)
@@ -54,7 +54,7 @@ Cypress.Commands.add('PracticeForgotPassword', () => {
 })
 
 Cypress.Commands.add('HubLogin', () => {
-	cy.visit(loginData.Qa_Hub_URL);
+	cy.visit(loginData.ProductURL + loginData.Hub_URL);
 	cy.verifyTitle(loginData.title); // verify practicer login page title
 	cy.enterText(loginPageSelectors.emailField, loginData.HubDispenserEmail); // enter practicer email
 	cy.enterText(loginPageSelectors.passwordField, loginData.HubPassword); // enter practicer password
@@ -69,7 +69,7 @@ Cypress.Commands.add('HubLogin', () => {
 })
 
 Cypress.Commands.add('HubForgotPassword', () => {
-	cy.visit(loginData.Qa_Hub_URL);
+	cy.visit(loginData.ProductURL + loginData.Hub_URL);
 	cy.clickOnElementUsingXpath(loginData.ForgotPassword) // Click on Forgot Your Password? link
 	cy.fixture('Data').then((profile) => {
 		cy.get(loginPageSelectors.emailField).last().clear().type(profile.Hub_Dispenser_Email)
@@ -78,7 +78,7 @@ Cypress.Commands.add('HubForgotPassword', () => {
 })
 
 Cypress.Commands.add('StandardPharmaLogin', () => {
-	cy.visit(loginData.Qa_Hub_URL);
+	cy.visit(loginData.ProductURL + loginData.Hub_URL);
 	cy.verifyTitle(loginData.title); // verify practicer login page title
 	cy.fixture('Data').then((profile) => {
 		cy.enterText(loginPageSelectors.emailField, profile.RX_Dispenser_Email); // enter practicer email
@@ -95,7 +95,7 @@ Cypress.Commands.add('StandardPharmaLogin', () => {
 })
 
 Cypress.Commands.add('StandardPharmaForgotPassword', () => {
-	cy.visit(loginData.Qa_Hub_URL);
+	cy.visit(loginData.ProductURL + loginData.Hub_URL);
 	cy.clickOnElementUsingXpath(loginData.ForgotPassword) // Click on Forgot Your Password? link
 	cy.fixture('Data').then((profile) => {
 		cy.get(loginPageSelectors.emailField).last().type(profile.RX_Dispenser_Email)
@@ -104,7 +104,7 @@ Cypress.Commands.add('StandardPharmaForgotPassword', () => {
 })
 
 Cypress.Commands.add('PatientLogin', () => {
-	cy.visit(loginData.Qa_Patient_URL);
+	cy.visit(loginData.ProductURL + loginData.Patient_URL);
 	cy.verifyTitle(loginData.title); // verify practicer login page title
 	cy.fixture('Data').then((profile) => {
 		cy.enterText(loginPageSelectors.emailField, profile.Patient_Email); // enter practicer email
@@ -114,7 +114,7 @@ Cypress.Commands.add('PatientLogin', () => {
 })
 
 Cypress.Commands.add('PatientForgotPassword', () => {
-	cy.visit(loginData.Qa_Patient_URL, { timeout: 30000 });
+	cy.visit(loginData.ProductURL + loginData.Patient_URL, { timeout: 30000 });
 	cy.clickOnElementUsingXpath(patientPageSelectors.ForgotPassword);
 	cy.contains('Send Reset Email').should('be.enabled')
 	cy.fixture('Data').then((profile) => {
@@ -125,7 +125,7 @@ Cypress.Commands.add('PatientForgotPassword', () => {
 })
 
 Cypress.Commands.add('TechnicianUserLogin', () => {
-	cy.visit(loginData.Qa_Practice_URL);
+	cy.visit(loginData.ProductURL + loginData.Practice_URL);
 	cy.verifyTitle(loginData.title); // verify practicer login page title
 	cy.fixture('Data').then((profile) => {
 		cy.enterText(loginPageSelectors.emailField, profile.Technician_Email); // enter practicer email
