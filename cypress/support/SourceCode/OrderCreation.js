@@ -18,18 +18,18 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 	cy.clickOnElement(practicePageSelectors.createOnetimeOrder)
 	cy.searchMedicine() //search for Medicine
 	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
-	// cy.Changequantity(); // click on edit content dropdown
-	// cy.get(dispenserPageSelectors.editContents).last().click().then(() => {
-	// 	cy.get('body').type('{downarrow}{enter}').click()
-	// })
-	// cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
-	// cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
-	// cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
-	// cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
-	// cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-	// cy.AttachDocument(); // Attach Dropchart Documents
+	cy.Changequantity(); // click on edit content dropdown
+	cy.get(dispenserPageSelectors.editContents).last().click().then(() => {
+		cy.get('body').type('{downarrow}{enter}').click()
+	})
+	cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
+	cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
+	cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
+	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
+	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
+	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingText(practiceData.paymentButtonName, practiceData.buttonTag); // click on skip payment button
-	// cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
+	cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 	cy.GetOrderID()
 	cy.wait(7000)
@@ -239,12 +239,12 @@ Cypress.Commands.add('CreatingRXOnetimePaymentOption', () => {
 	cy.searchMedicine() //search for Medicine
 	cy.clickOnElementUsingXpathfirst(practicePageSelectors.addMedicine); // click on add button
 	cy.Changequantity(); // click on edit content dropdown
-	// cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
-	// cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
-	// cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
-	// cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
-	// cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
-	// cy.AttachDocument(); // Attach Dropchart Documents
+	cy.get(practicePageSelectors.DWACheckBox).check({ force: true })
+	cy.enterText(dispenserPageSelectors.rxInstruction, dispenserData.instructionMessage); //Enter Instruction
+	cy.clickOnElementUsingXpathwithIndex(loginPageSelectors.editLinkId, 2);// click on the edit button for add allergies
+	cy.enterTextInFieldwithEnter(practicePageSelectors.allergiesTextBox, allergiesName); // enter allergy name
+	cy.clickOnElementUsingXpath(loginPageSelectors.doneButtonId); // click on the done button
+	cy.AttachDocument(); // Attach Dropchart Documents
 	cy.clickOnElementUsingXpath(practicePageSelectors.providePaymentID); //click on the provide payment button
 	cy.wait(1000)
 	cy.get('body').then((body) => {

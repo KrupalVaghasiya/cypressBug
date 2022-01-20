@@ -1,5 +1,4 @@
 const loginData = {
-
     ProductURL : 'https://ibis-qa.droicelabs.us',
     OrderAPI: '/api',
     DispenserURL: '/dispenser',
@@ -12,7 +11,6 @@ const loginData = {
     Practice_URL: '/login/practice',
     Hub_URL: '/login/dispenser',
     Patient_URL: '/patient/login',
-
     MasterEmail: 'master@legranderx.com', // Need to Change Login Here
     PracticeEmail: 'diza.1210@getnada.com', // Need to Change Login Here
     HubDispenserEmail: 'hub.vp@getnada.com', // Need to Change Login Here

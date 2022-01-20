@@ -218,7 +218,7 @@ describe('Process payment and confirm pick up from Standard Pharma ', () => {
 describe('Create RX, OTC and Compound order subscription with provide payment', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
-  });
+  })
 
   it('Create RX order Subscription with Provide Payment', () => {
     cy.SubscriptionDispenserIntercept()
