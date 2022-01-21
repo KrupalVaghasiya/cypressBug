@@ -49,7 +49,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
     cy.StandardPharmaLogin()
   });
 
-  it('Creating New Patient and create RX order Onetime with skip payment', () => {
+  it.only('Creating New Patient and create RX order Onetime with skip payment', () => {
     // cy.CreatePatient()
     cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimelaterpayment()

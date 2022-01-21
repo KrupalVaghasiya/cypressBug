@@ -131,15 +131,13 @@ Cypress.Commands.add('clickOnElementUsingXpathwithIndex', (loc, index, log) => {
 
 //Practice custome command
 Cypress.Commands.add('searchPatients', (loc, data) => {
-	cy.wait(1000);
 	cy.readFile('cypress/fixtures/Data.json').then((profile) => {
 		cy.get(loc, { timeout: 30000 })
-			.type(data).wait(3000).clickOnElementTextWithForce(profile.patientNameDOB);
+			.type(data).clickOnElementTextWithForce(profile.patientNameDOB);
 	})
 });
 
 Cypress.Commands.add('searchDoctors', () => {
-	cy.wait(1000)
 	cy.fixture('Data').then((profile) => {
 		cy.get(practicePageSelectors.searchDoctor)
 			.click()
@@ -243,7 +241,7 @@ Cypress.Commands.add('stateValue', () => {
 });
 
 Cypress.Commands.add('PayorName', () => {
-	cy.clickOnElement(dispenserPageSelectors.PayorName).type('Max Life')
+	cy.clickOnElement(dispenserPageSelectors.PayorName).clear().type('Max Life')
 	cy.wait(2000)
 	cy.contains('Max Life', { timeout: 10000 }).click()
 });

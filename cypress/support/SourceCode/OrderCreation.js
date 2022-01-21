@@ -32,9 +32,9 @@ Cypress.Commands.add('CreatingRXOnetimelaterpayment', () => {
 	cy.verifyTextToBePresent(practiceData.Rx_productType); // verify the product type 
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 	cy.GetOrderID()
-	cy.wait(7000)
-	cy.get('body').then((body) => {
-		if (body.find('div.modal-footer > button').length > 0) {
+	const path = 'dispenser/orders/new/review';
+	cy.url().then(($url) => {
+		if ($url.includes(path)) {
 			cy.clickOnElementUsingXpath('//div[@class="modal-footer"]//*[text()="Dismiss"]')
 		}
 	})
@@ -64,14 +64,13 @@ Cypress.Commands.add('CreatingOTCOnetimelaterpayment', () => {
 	cy.verifyTextToBePresent(practiceData.OTC_productType); // verify the product type 
 	cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 	cy.GetOrderID()
-	cy.wait(7000)
-	cy.get('body').then((body) => {
-		if (body.find('div.modal-footer > button').length > 0) {
+	const path = 'dispenser/orders/new/review';
+	cy.url().then(($url) => {
+		if ($url.includes(path)) {
 			cy.clickOnElementUsingXpath('//div[@class="modal-footer"]//*[text()="Dismiss"]')
 		}
 	})
 })
-
 
 Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 	cy.clickOnElement(practicePageSelectors.CreateOrder).click(); // click on add Rx button
@@ -104,9 +103,9 @@ Cypress.Commands.add('CreatingCompoundOnetimelaterpayment', () => {
 		cy.verifyTextToBePresent(practiceData.Compound_productType); // verify the product type 
 		cy.clickOnElementUsingXpath(practicePageSelectors.submit_CreateOrderButton); // click on submit button
 		cy.GetOrderID()
-		cy.wait(7000)
-		cy.get('body').then((body) => {
-			if (body.find('div.modal-footer > button').length > 0) {
+		const path = 'dispenser/orders/new/review';
+		cy.url().then(($url) => {
+			if ($url.includes(path)) {
 				cy.clickOnElementUsingXpath('//div[@class="modal-footer"]//*[text()="Dismiss"]')
 			}
 		})
