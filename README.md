@@ -1,13 +1,8 @@
-# Parabol - We're [hiring](https://www.parabol.co/join)!
-
-[![Slack Status](http://slackin.parabol.co/badge.svg)](http://slackin.parabol.co/)
-[![CircleCI](https://circleci.com/gh/ParabolInc/parabol.svg?style=svg)](https://circleci.com/gh/ParabolInc/parabol)
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/parabol-inc/parabol-multiplayer-web-app)
+# Legrande (https://legrandehealth.com/)
 
 ## Overview
 
-[Parabol](https://www.parabol.co) is an open-source SaaS application for running team retrospectives and operating a
-distributed organization. We publish our company's [history and business metrics](https://focus.parabol.co/), too.
+Legrande is a healthcare website. It provide best service with less time cost.
 
 ![Dashboard](./docs/images/d2.gif)
 ![Discuss](./docs/images/d1.gif)
