@@ -50,7 +50,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
   });
 
   it('Creating New Patient and create RX order Onetime with skip payment', () => {
-    // cy.CreatePatient()
+    cy.CreatePatient()
     cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimelaterpayment()
   })
