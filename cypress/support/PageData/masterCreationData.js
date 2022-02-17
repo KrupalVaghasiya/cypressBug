@@ -18,6 +18,8 @@ const masterCreationData = {
 	Rx_Price: '90',
 	PasswordConfirmation: "Password set successfully",
 	OTC_Price: '50',
+	category_OTC_Name: 'Category_OTC',
+	manufacturer_OTC_Name: 'Manufacturer_OTC',
 	category_Compound_Name: 'Category_Compound',
 	manufacturer_Compound_Name: 'Manufacturer_Compound',
 	Compound_Price: '70',

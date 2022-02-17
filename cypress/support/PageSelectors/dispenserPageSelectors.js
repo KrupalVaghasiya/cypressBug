@@ -8,6 +8,8 @@ const dispenserPageSelectors = {
 	BillingLine1: 'div[id="billing_address"] [name="street_1"]', // address field input id	
 	BillingCity: 'div[id="billing_address"] [name="city"]', // city name input field id
 	BillingZipCode: 'div[id="billing_address"] [name="zip"]', //zip code input field id
+	cardDetailsCityField: '[name="address.city"]',
+	cardDetailsZipCodeField: '[name="address.zip"]',
 	editContents: '[class="Select-arrow"]', // select dropdown
 	approveButtonId: '//*[text()="Approve"]', //approve button
 	addNotesButton: '//*[text()="Add Note"]', // add notes button

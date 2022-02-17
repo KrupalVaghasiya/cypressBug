@@ -49,7 +49,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
     cy.StandardPharmaLogin()
   });
 
-  it.only('Creating New Patient and create RX order Onetime with skip payment', () => {
+  it('Creating New Patient and create RX order Onetime with skip payment', () => {
     // cy.CreatePatient()
     cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimelaterpayment()
@@ -129,7 +129,6 @@ describe('Edit Patient Pending Details from Hub Portal', () => {
   })
 
   it('Should Edit patient details, Approve patient and transfer order', () => {
-    cy.EditPatientDetails()
     cy.PatientApproval()
     cy.TransferOrder()
   })

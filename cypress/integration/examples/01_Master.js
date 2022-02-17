@@ -34,67 +34,67 @@ var num = Math.floor(100000 + Math.random() * 900000)
 num = num.toString().substring(0, 4);
 
 // Create Product from Master Account
-describe('Forgot Password From Master ', () => {
-  it('Forgot Password', () => {
-    cy.MasterForgotPassword()
-  });
-});
+// describe('Forgot Password From Master ', () => {
+//   it('Forgot Password', () => {
+//     cy.MasterForgotPassword()
+//   });
+// });
 
-describe('Create RX, OTC and Compound Products from Master Account', () => {
-  beforeEach(() => {
-    cy.MasterLogin()
+// describe('Create RX, OTC and Compound Products from Master Account', () => {
+//   beforeEach(() => {
+//     cy.MasterLogin()
 
-  })
+//   })
 
-  // Create RX product from master account
-  it('Create RX Product', () => {
-    cy.clickOnElementTextWithForce(masterCreationData.addProduct);
-    cy.enterText(loginPageSelectors.nameFieldId, ProductName + " RX");
-    cy.FindRx();
-    cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.categoryRxName, "Enter product name");
-    cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturerRxName, " Enter manufacturer name");
-    cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size, " Enter package size");
-    cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.Rx_Price, "Enter product price");
-    cy.enterText(masterCreationPageSelectors.gmvFieldId, masterCreationData.Gmv);
-    cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number, "Enter AWP number");
-    cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number, "Enter ARP number");
-    cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number, "Enter NDC number");
-    cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number, "Enter PN number");
-    cy.clickOnElementTextWithForce(dispenserData.addingProduct);
-  });
+//   // Create RX product from master account
+//   it('Create RX Product', () => {
+//     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
+//     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " RX");
+//     cy.FindRx();
+//     cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.categoryRxName, "Enter product name");
+//     cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturerRxName, " Enter manufacturer name");
+//     cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size, " Enter package size");
+//     cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.Rx_Price, "Enter product price");
+//     cy.enterText(masterCreationPageSelectors.gmvFieldId, masterCreationData.Gmv);
+//     cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number, "Enter AWP number");
+//     cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number, "Enter ARP number");
+//     cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number, "Enter NDC number");
+//     cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number, "Enter PN number");
+//     cy.clickOnElementTextWithForce(dispenserData.addingProduct);
+//   });
 
-  // Create OTC product from master account
-  it('Create OTC Product', () => {
-    cy.clickOnElementTextWithForce(masterCreationData.addProduct);
-    cy.enterText(loginPageSelectors.nameFieldId, ProductName + " OTC");
-    cy.OTCProduct();
-    cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.category_OTC_Name);
-    cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturer_OTC_Name);
-    cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size);
-    cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.OTC_Price);
-    cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number);
-    cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number);
-    cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number);
-    cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number);
-    cy.clickOnElementTextWithForce(dispenserData.addingProduct);
-  });
+//   // Create OTC product from master account
+//   it('Create OTC Product', () => {
+//     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
+//     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " OTC");
+//     cy.OTCProduct();
+//     cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.category_OTC_Name);
+//     cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturer_OTC_Name);
+//     cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size);
+//     cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.OTC_Price);
+//     cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number);
+//     cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number);
+//     cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number);
+//     cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number);
+//     cy.clickOnElementTextWithForce(dispenserData.addingProduct);
+//   });
 
-  // Create Compound product from master account
-  it('Create Compound Product', () => {
-    cy.clickOnElementTextWithForce(masterCreationData.addProduct);
-    cy.enterText(loginPageSelectors.nameFieldId, ProductName + " Compound");
-    cy.Compound();
-    cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.category_Compound_Name);
-    cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturer_Compound_Name);
-    cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size);
-    cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.Compound_Price);
-    cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number);
-    cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number);
-    cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number);
-    cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number);
-    cy.clickOnElementTextWithForce(dispenserData.addingProduct);
-  });
-})
+//   // Create Compound product from master account
+//   it('Create Compound Product', () => {
+//     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
+//     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " Compound");
+//     cy.Compound();
+//     cy.enterText(masterCreationPageSelectors.categoryFieldId, masterCreationData.category_Compound_Name);
+//     cy.enterText(masterCreationPageSelectors.brandFieldId, masterCreationData.manufacturer_Compound_Name);
+//     cy.enterText(masterCreationPageSelectors.packageFieldId, masterCreationData.Package_Size);
+//     cy.enterText(masterCreationPageSelectors.priceFieldId, masterCreationData.Compound_Price);
+//     cy.enterText(masterCreationPageSelectors.awpFieldId, masterCreationData.AWP_Number);
+//     cy.enterText(masterCreationPageSelectors.arpFieldId, masterCreationData.ARP_Number);
+//     cy.enterText(masterCreationPageSelectors.ndcFieldId, masterCreationData.NDC_Number);
+//     cy.enterText(masterCreationPageSelectors.pnFieldId, masterCreationData.PN_Number);
+//     cy.clickOnElementTextWithForce(dispenserData.addingProduct);
+//   });
+// })
 
 //Create hub dispenser
 describe('Create Hub Dispenser from Master', () => {
@@ -297,6 +297,7 @@ describe('Create Practicer from master account', () => {
 
   it('Create Practicer Account', () => {
     cy.clickOnElementTextWithForce(masterCreationData.practiceDashBoard); // click on the Practice tab
+    cy.wait(2000)
     cy.clickOnElementTextWithForce(loginData.addPractice); // click on the add new practice
     cy.enterText(loginPageSelectors.nameFieldId, firstName + practiceName); // enter the practice name
     cy.enterText(loginPageSelectors.emailField, firstName + practiceName + emailAddress); // enter the practice email id

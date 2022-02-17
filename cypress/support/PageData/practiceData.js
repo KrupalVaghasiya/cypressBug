@@ -11,7 +11,7 @@ const practiceData = {
 	buttonTag: 'button',
 	SaveandExitbutton: 'Save and Exit',
 	creditCardNumber: '02a500c0170017008292;371449*****8431=3405?*50646b796dbda974c15d1b5d5aa8c23d3238783c5b041ce6000000000000000000000000000000000000000030343952303337373034ffff98765400068000283fcd03',
-	CardNumber: '5555 5537 5304 8194',
+	CardNumber: '4111 1111 1111 1111',
 	nameOnCard: 'Adma Zampa',
 	cardSecurityPin: '123',
 	ViewDetailsOfOrder: 'View Details',

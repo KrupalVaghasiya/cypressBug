@@ -1,5 +1,5 @@
 const loginData = {
-    ProductURL : 'https://ibis-qa.droicelabs.us',
+    ProductURL : 'https://ibis-dev.droicelabs.us',
     OrderAPI: '/api',
     DispenserURL: '/dispenser',
     PracticeURL: '/practice',
@@ -35,6 +35,7 @@ const loginData = {
     dismissButton: 'Dismiss',
     submitButtonName: 'Submit',
     saveButtonName: 'Save',
+    payButtonName: 'Pay',
     saveChangeButtonName: 'Save Changes',
     yesButtonName: 'Yes',
     userOption1: 'Technician',

@@ -50,6 +50,7 @@ describe('Create Patient And OTC Subscription Order From Practice Account', () =
     })
 
     it('Create OTC order Subscription with skip payment', () => {
+        cy.SubscriptionPracticeIntercept()
         cy.CreatingOTCSubscriptionLaterPayment()
         cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
     });
@@ -310,7 +311,7 @@ describe('Complete Payment Details, Edit plans date and Cancel plan from patient
                 .find(patientPageSelectors.PostalCode)
                 .type(dispenserData.zipCode)
             cy.iframe('iframe[src*="uat.freedompay.com"]')
-                .contains(loginData.saveButtonName)
+                .contains(loginData.payButtonName)
                 .click()
         }
         else {

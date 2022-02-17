@@ -111,7 +111,7 @@ Cypress.Commands.add('EditPatientDetails', () => {
 		cy.enterText(dispenserPageSelectors.BillingLine1, dispenserData.shippingAdderss); // enter shipping details
 		cy.clearText(dispenserPageSelectors.BillingCity, dispenserData.cityName)
 		cy.enterText(dispenserPageSelectors.BillingCity, dispenserData.cityName); // enter city name
-		cy.stateValue(); // select state
+		cy.BillingState(); // select state
 		cy.clearText(dispenserPageSelectors.BillingZipCode, dispenserData.zipCode)
 		cy.enterText(dispenserPageSelectors.BillingZipCode, dispenserData.zipCode); // enter country zip code
 		cy.PayorName(); // Select Payor from dropdown
@@ -303,7 +303,7 @@ Cypress.Commands.add('OrderSendOutOfNetwork', () => {
 });
 
 Cypress.Commands.add("ScrapeURL", () => {
-	cy.clickOnElement(patientPageSelectors.GoButton)
+	cy.clickOnElementUsingXpath(patientPageSelectors.GoButton)
 	cy.verifyTextToBePresent(masterCreationPageSelectors.VerifyEmail);
 	cy.clickOnElementUsingXpathwithIndex(masterCreationPageSelectors.ClickOnEmail, 0);
 	cy.clickOnElement('#pills-textbuthtml-tab')
