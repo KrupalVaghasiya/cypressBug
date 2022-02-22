@@ -60,7 +60,7 @@ const patientPageSelectors = {
   SelectReason: '[id="selected_remarks"]',
   planReason: '//div[2]/div[1]/p[1]',
   DatePicker: '[placeholder="MM/DD/YYYY"]',
-  Date: '//*[text()="28"]',
+  Date: '//div[@class="react-datepicker"]/div/div[2]/div[6]/div[7]',
   nextDate: '//*[text()="29"]',
   CompletePaymentButton: '//*[text()="Complete Payment"]',
   AccountName: '[id="first_name"]',

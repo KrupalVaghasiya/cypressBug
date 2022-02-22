@@ -14,7 +14,7 @@
   },
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
-    "reportDir": "cypress/reports",
+    "reportDir": "cypress/Reports",
     "charts": true,
     "reportPageTitle": "My Test Suite",
     "embeddedScreenshots": true,
@@ -24,7 +24,7 @@
   "author": "weblylab",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.3.0",
+    "cypress": "^9.5.0",
     "cypress-file-upload": "^5.0.2",
     "cypress-mochawesome-reporter": "^2.2.0",
     "cypress-xpath": "^1.6.1",

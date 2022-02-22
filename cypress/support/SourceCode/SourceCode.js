@@ -308,7 +308,7 @@ Cypress.Commands.add("ScrapeURL", () => {
 	cy.clickOnElementUsingXpathwithIndex(masterCreationPageSelectors.ClickOnEmail, 0);
 	cy.clickOnElement('#pills-textbuthtml-tab')
 	cy.get('#texthtml_msg_body').then(function ($ele) {
-		var ifele = $ele.contents().find('body:nth-child(2) > a:nth-child(7)');
+		var ifele = $ele.contents().find('body:nth-child(2) > a:nth-child(1)');
 		cy.wrap(ifele).then(function (ele) {
 
 			const url = ele.prop('href');

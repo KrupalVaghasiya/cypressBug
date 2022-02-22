@@ -52,7 +52,6 @@ describe('Create Patient And OTC Subscription Order From Practice Account', () =
     it('Create OTC order Subscription with skip payment', () => {
         cy.SubscriptionPracticeIntercept()
         cy.CreatingOTCSubscriptionLaterPayment()
-        cy.clickOnElementUsingText(loginData.submitButtonName, practiceData.buttonTag); // click on submit button
     });
 })
 
@@ -67,7 +66,7 @@ describe('Create Patient Email from Mailinator And Save Link Into file', () => {
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.EmailContent, 0);
         cy.clickOnElement('#pills-textbuthtml-tab')
         cy.get('#texthtml_msg_body').then(function ($link) {
-            var ifele = $link.contents().find('body:nth-child(2) > a:nth-child(7)');
+            var ifele = $link.contents().find('body:nth-child(2) > a:nth-child(1)');
             cy.wrap(ifele).then(function (ele) {
 
                 const url = ele.prop('href');
@@ -325,7 +324,7 @@ describe('Complete Payment Details, Edit plans date and Cancel plan from patient
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.activePlans, 0)
         cy.clickOnElementUsingXpath(patientPageSelectors.ManagePlan)
         cy.clickOnElement(patientPageSelectors.DatePicker)
-        cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.Date, 1)
+        cy.clickOnElementUsingXpath(patientPageSelectors.Date)
         cy.wait(1000)
         cy.xpath(patientPageSelectors.UpdateButton).then(($btn) => {
             if ($btn.is(':enabled')) {

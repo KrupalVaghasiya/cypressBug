@@ -1,7 +1,7 @@
 {
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
-    "reportDir": "cypress/reports",
+    "reportDir": "cypress/Reports",
     "charts": true,
     "overwrite": false,
     "html": false,
@@ -9,6 +9,11 @@
     "reportPageTitle": "My Test Suite",
     "embeddedScreenshots": true,
     "inlineAssets": true
+  },
+  "defaultCommandTimeout":30000,
+  "retries":{
+    "runMode":1,
+    "openMode":1
   },
   "video": false,
   "scrollBehavior": "nearest",

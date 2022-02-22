@@ -235,7 +235,7 @@ Cypress.Commands.add('selectState', () => {
 });
 
 Cypress.Commands.add('stateValue', () => {
-	cy.clickOnElementUsingXpath('(//*[@class="sc-gqPbQI dopazv"]//*[@class="Select-arrow"])[1]');
+	cy.clickOnElementUsingXpath('(//*[@class="Select-arrow"])[1]');
 	//cy.wait(1000);
 	cy.clickOnElement('div[aria-label="Alabama"]');
 });
