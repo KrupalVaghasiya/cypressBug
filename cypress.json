@@ -6,7 +6,8 @@
     "overwrite": false,
     "html": false,
     "json": true,
-    "reportPageTitle": "My Test Suite",
+    "reportPageTitle": "Legrande Cypress",
+    "reportFilename": "Legrande Cypress Test Report",
     "embeddedScreenshots": true,
     "inlineAssets": true
   },

@@ -34,19 +34,19 @@ var num = Math.floor(100000 + Math.random() * 900000)
 num = num.toString().substring(0, 4);
 
 // Create Product from Master Account
-describe('Forgot Password From Master ', () => {
-  it('Forgot Password', () => {
+describe('Verifing forgot Password From Master ', () => {
+  it('Check for forgot Password', () => {
     cy.MasterForgotPassword()
   });
 });
 
-describe('Create RX, OTC and Compound Products from Master Account', () => {
+describe('Verifing RX, OTC and Compound Products creation.', () => {
   beforeEach(() => {
     cy.MasterLogin()
   })
 
   // Create RX product from master account
-  it('Create RX Product', () => {
+  it('Creating RX Product', () => {
     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " RX");
     cy.FindRx();
@@ -63,7 +63,7 @@ describe('Create RX, OTC and Compound Products from Master Account', () => {
   });
 
   // Create OTC product from master account
-  it('Create OTC Product', () => {
+  it('Creating OTC Product', () => {
     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " OTC");
     cy.OTCProduct();
@@ -79,7 +79,7 @@ describe('Create RX, OTC and Compound Products from Master Account', () => {
   });
 
   // Create Compound product from master account
-  it('Create Compound Product', () => {
+  it('Creating Compound Product', () => {
     cy.clickOnElementTextWithForce(masterCreationData.addProduct);
     cy.enterText(loginPageSelectors.nameFieldId, ProductName + " Compound");
     cy.Compound();
@@ -96,12 +96,12 @@ describe('Create RX, OTC and Compound Products from Master Account', () => {
 })
 
 //Create hub dispenser
-describe('Create Hub Dispenser from Master', () => {
+describe('Verifing Hub Dispenser creation.', () => {
   beforeEach(() => {
     cy.MasterLogin()
   });
 
-  it('Create Hub Dispenser', () => {
+  it('Creating Hub Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Rx_HUB_dispenserName, "Verify dispenser name"); // enter the Rx ub dispenser name
@@ -141,12 +141,12 @@ describe('Create Email from Mailinator And Set New Password', () => {
   })
 })
 
-describe('Create RX Standard Dispenser from Master', () => {
+describe('Verifing RX Standard Dispenser creation.', () => {
   before(() => {
     cy.MasterLogin()
   });
 
-  it('Create RX Dispenser', () => {
+  it('Creating RX Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Rx_dispenserName); // enter the dispenser name
@@ -190,12 +190,12 @@ describe('Create Email from Mailinator And Set New Password', () => {
   })
 })
 
-describe('Create OTC Standard Dispenser', () => {
+describe('Verifing OTC Standard Dispenser creation.', () => {
   before(() => {
     cy.MasterLogin()
   });
 
-  it('Create OTC Dispenser', () => {
+  it('Creating OTC Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Retail_dispenserName); // enter the dispenser name
@@ -239,12 +239,12 @@ describe('Create Email from Mailinator And Set New Password', () => {
   })
 })
 
-describe('Create Compound Standard Dispenser', () => {
+describe('Verifing Compound Standard Dispenser creation.', () => {
   before(() => {
     cy.MasterLogin()
   });
 
-  it('Create Compound Standard Dispenser', () => {
+  it('Creating Compound Standard Dispenser', () => {
     cy.clickOnElementTextWithForce(masterCreationData.dispenserDashboard); // click on the Dispenser tab
     cy.clickOnElementTextWithForce(loginData.addDispenser); // click on the add new dispenser
     cy.enterText(loginPageSelectors.nameFieldId, Compound_dispenserName); // enter the dispenser name
@@ -289,12 +289,12 @@ describe('Create Email from Mailinator And Set New Password', () => {
 })
 
 // Create Practice from master account
-describe('Create Practicer from master account', () => {
+describe('Verifing Practice creation.', () => {
   beforeEach(() => {
     cy.MasterLogin()
   });
 
-  it('Create Practicer Account', () => {
+  it('Creating Practicer Account', () => {
     cy.clickOnElementTextWithForce(masterCreationData.practiceDashBoard); // click on the Practice tab
     cy.wait(2000)
     cy.clickOnElementTextWithForce(loginData.addPractice); // click on the add new practice
@@ -351,12 +351,12 @@ describe('Create Email from Mailinator And Set New Password', () => {
   })
 })
 
-describe('Create User from master account', () => {
+describe('Verifing User creation.', () => {
   beforeEach(() => {
     cy.MasterLogin()
   });
 
-  it('Create User in dispenser profile', () => {
+  it('Creating User for dispenser.', () => {
     cy.clickOnElementTextWithForce(masterCreationData.userDashBoard); // click on the User tab
     cy.clickOnElementTextWithForce(loginData.addUsers); //click on the account button link
     cy.enterText(loginPageSelectors.userfirst_name, firstName); // enter first name of admin
@@ -378,7 +378,7 @@ describe('Create User from master account', () => {
     cy.clickOnElementTextWithForce(dispenserData.dismissButton)
   });
 
-  it('Create User in practice profile', () => {
+  it('Creating User for practice.', () => {
     cy.clickOnElementTextWithForce(masterCreationData.userDashBoard); // click on the User tab
     cy.clickOnElementTextWithForce(loginData.addUsers); //click on the account button link
     cy.enterText(loginPageSelectors.userfirst_name, firstName); // enter first name of admin
@@ -414,12 +414,12 @@ describe('Create Email from Mailinator And Set New Practice User', () => {
 })
 
 // Create payor from master
-describe('Create Payor from master account', () => {
+describe('Verifing Payor creation.', () => {
   beforeEach(() => {
     cy.MasterLogin()
   });
 
-  it('Create Payor Insurance ', () => {
+  it('Creating Payor Insurance.', () => {
     cy.clickOnElementTextWithForce(masterCreationData.PayorDashboard); // click on the Payor tab
     cy.clickOnElementTextWithForce(loginData.addPayor); //click on the account button link
     cy.enterText(loginPageSelectors.nameFieldId, firstName + ' Insurance ' + lastName); // enter first name of admin
@@ -429,7 +429,7 @@ describe('Create Payor from master account', () => {
     cy.clickOnElementTextWithForce(dispenserData.dismissButton)
   });
 
-  it('Create Payor Cash ', () => {
+  it('Creating Payor Cash.', () => {
     cy.clickOnElementTextWithForce(masterCreationData.PayorDashboard); // click on the Payor tab
     cy.clickOnElementTextWithForce(loginData.addPayor); //click on the account button link
     cy.enterText(loginPageSelectors.nameFieldId, firstName + ' Cash ' + lastName); // enter first name of admin
@@ -439,7 +439,7 @@ describe('Create Payor from master account', () => {
     cy.clickOnElementTextWithForce(dispenserData.dismissButton)
   });
 
-  it('Create Payor Coupen ', () => {
+  it('Createing Payor Coupen.', () => {
     cy.clickOnElementTextWithForce(masterCreationData.PayorDashboard); // click on the Payor tab
     cy.clickOnElementTextWithForce(loginData.addPayor); //click on the account button link
     cy.enterText(loginPageSelectors.nameFieldId, firstName + ' Coupons ' + lastName); // enter first name of admin

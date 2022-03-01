@@ -12,7 +12,7 @@ import { dispenserPageSelectors } from '../../support/PageSelectors/dispenserPag
 import { dispenserData } from '../../support/PageData/dispenserData.js';
 import { patientPageSelectors } from '../../support/PageSelectors/patientPageSelectors.js';
 
-describe('Forgot Password From Standard Pharma ', () => {
+describe('Verifing forgot Password From Standard Pharma ', () => {
   it('Forgot Password', () => {
     cy.StandardPharmaForgotPassword()
   })
@@ -30,7 +30,7 @@ describe('Forgot Password From Standard Pharma ', () => {
   })
 });
 
-describe('Login to Standard Pharma ', () => {
+describe('Change product price and Add user.', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
   });
@@ -39,7 +39,7 @@ describe('Login to Standard Pharma ', () => {
     cy.ChangeProductPrice()
   })
 
-  it('Add New User', () => {
+  it('Creating User', () => {
     cy.AddUser()
   })
 })
@@ -66,19 +66,19 @@ describe('Approve Order From Practice Account', () => {
   })
 })
 
-describe('Edit Patient Pending Details from Hub Portal', () => {
+describe('Verifing Edit patient details, Approve patient approval and transfer the order', () => {
   beforeEach(() => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
+  it('Edit patient details, Approve patient and transfer the order', () => {
     cy.EditPatientDetails()
     cy.PatientApproval()
     cy.TransferOrder()
   })
 })
 
-describe('Login to Standard Pharma ', () => {
+describe('Processing payment and creating postage lable', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
   });
@@ -87,7 +87,7 @@ describe('Login to Standard Pharma ', () => {
     cy.ProcessPayment()
   })
 
-  it('Create Postage Label', () => {
+  it('Creating Postage Label', () => {
     cy.CreatePostageLabel()
   })
 
@@ -107,7 +107,7 @@ describe('Create RX, OTC and Compound order subscription with skip payment', () 
     cy.StandardPharmaLogin()
   });
 
-  it('Create RX order Subscription with Skip payment', () => {
+  it('Creating RX order Subscription with Skip payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingRXSubscriptionLaterPayment()
   })
@@ -123,18 +123,18 @@ describe('Approve Order From Practice Account', () => {
   })
 })
 
-describe('Edit Patient Pending Details from Hub Portal', () => {
+describe('Verifing Approve patient approval and transfer the order', () => {
   beforeEach(() => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
+  it('Approve patient approval and transfer the order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })
 })
 
-describe('Login to Standard Pharma ', () => {
+describe('Verifing Process Payment And Creating Postage lable', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
   });
@@ -143,16 +143,16 @@ describe('Login to Standard Pharma ', () => {
     cy.ProcessPayment()
   })
 
-  it('Create Postage Label', () => {
+  it('Creating Postage Label', () => {
     cy.CreatePostageLabel()
   })
 
-  it('Create OTC order Subscription with skip payment', () => {
+  it('Creating OTC order Subscription with skip payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingOTCSubscriptionLaterPayment()
   })
 
-  it('Create Compound order Subscription with skip payment', () => {
+  it('Creating Compound order Subscription with skip payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingCompoundSubscriptionLaterPayment()
   })
@@ -163,7 +163,7 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
     cy.StandardPharmaLogin()
   });
 
-  it('Create RX order Onetime with Provide Payment', () => {
+  it('Creating RX order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimePaymentOption()
   })
@@ -179,12 +179,12 @@ describe('Approve Order From Practice Account', () => {
   })
 })
 
-describe('Edit Patient Pending Details from Hub Portal', () => {
+describe('Verifing patient approval and transfer the order', () => {
   beforeEach(() => {
     cy.HubLogin()
   })
 
-  it('Should Edit patient details, Approve patient and transfer order', () => {
+  it('Approve patient approval and transfer the order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })
@@ -203,12 +203,12 @@ describe('Process payment and confirm pick up from Standard Pharma ', () => {
     cy.confirmPickupPerson()
   })
 
-  it('Create OTC order Onetime with Provide Payment', () => {
+  it('Creating OTC order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimePaymentOption()
   })
 
-  it('Create Compound order Onetime with Provide Payment', () => {
+  it('Creating Compound order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimePaymentOption()
   })
@@ -219,7 +219,7 @@ describe('Create RX, OTC and Compound order subscription with provide payment', 
     cy.StandardPharmaLogin()
   })
 
-  it('Create RX order Subscription with Provide Payment', () => {
+  it('Creating RX order Subscription with Provide Payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingRXSubscriptionPaymentOptionCourierService()
   })
@@ -235,18 +235,18 @@ describe('Approve Order From Practice Account', () => {
   })
 })
 
-describe('Edit Patient Pending Details from Hub Portal', () => {
+describe('Verifing patient approval and transfer the order', () => {
   beforeEach(() => {
     cy.HubLogin()
   })
 
-  it('Approve patient and transfer order', () => {
+  it('Approve patient approval and transfer the order', () => {
     cy.PatientApproval()
     cy.TransferOrder()
   })
 })
 
-describe('Login to Standard Pharma ', () => {
+describe('Verifing Process Payment and Confirm Courier Pick-Up Order', () => {
   beforeEach(() => {
     cy.StandardPharmaLogin()
   });
@@ -263,12 +263,12 @@ describe('Login to Standard Pharma ', () => {
     cy.CompleteOrder()
   })
 
-  it('Create OTC order Subscription with provide payment', () => {
+  it('Creating OTC order Subscription with provide payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreateOTCSubscriptionPaymentOption()
   })
 
-  it('Create Compound order Subscription with provide payment', () => {
+  it('Creating Compound order Subscription with provide payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreateCompoundSubscriptionPaymentOption()
   })

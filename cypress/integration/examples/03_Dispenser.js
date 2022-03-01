@@ -12,8 +12,8 @@ import { dispenserPageSelectors } from '../../support/PageSelectors/dispenserPag
 import { dispenserData } from '../../support/PageData/dispenserData.js';
 import { patientPageSelectors } from '../../support/PageSelectors/patientPageSelectors.js';
 
-describe('Forgot Password From Hub Dispenser ', () => {
-  it('Forgot Password', () => {
+describe('Verifing Forgot Password From Hub Dispenser ', () => {
+  it('Check Forgot Password', () => {
     cy.HubForgotPassword()
   })
 
@@ -35,11 +35,11 @@ describe('Change Product Price and Create User from Hub Dispenser', () => {
     cy.HubLogin()
   });
 
-  it('Change Product Price', () => {
+  it('Changing Product Price', () => {
     cy.ChangeProductPrice()
   })
 
-  it('Add New User', () => {
+  it('Creating User', () => {
     cy.AddUser()
   })
 })
@@ -55,13 +55,13 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
     cy.CreatingRXOnetimelaterpayment()
   })
 
-  it('Edit patient details, Approve patient and transfer order', () => {
+  it('Edit patient details, Approve patient and transfer the order', () => {
     cy.EditPatientDetails()
     cy.PatientApproval()
     cy.TransferOrder()
   })
 
-  it('Complete Order', () => {
+  it('Mark as Complete Order', () => {
     cy.OrderComplete();
   })
 
@@ -70,7 +70,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
     cy.CreatingOTCOnetimelaterpayment()
   });
 
-  it('Send Out Of Network', () => {
+  it('Mark as Send Out Of Network', () => {
     cy.OrderSendOutOfNetwork();
   })
 
@@ -79,7 +79,7 @@ describe('Create RX, OTC and Compound order onetime with skip Payment', () => {
     cy.CreatingCompoundOnetimelaterpayment()
   });
 
-  it('Cancel Order', () => {
+  it('Mark as Cancel Order', () => {
     cy.CancelOrder();
   })
 })
@@ -89,12 +89,12 @@ describe('Create OTC and Compound order subscription with skip payment', () => {
     cy.HubLogin()
   });
 
-  it('Create OTC order Subscription with skip payment', () => {
+  it('Creating OTC order Subscription with skip payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingOTCSubscriptionLaterPayment()
   })
 
-  it('Create Compound order Subscription with skip payment', () => {
+  it('Creating Compound order Subscription with skip payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreatingCompoundSubscriptionLaterPayment()
   })
@@ -105,17 +105,17 @@ describe('Create RX, OTC and Compound order onetime with Provide Payment', () =>
     cy.HubLogin()
   });
 
-  it('Create RX order Onetime with Provide Payment', () => {
+  it('Creating RX order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingRXOnetimePaymentOption()
   })
 
-  it('Create OTC order Onetime with Provide Payment', () => {
+  it('Creating OTC order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingOTCOnetimePaymentOption()
   })
 
-  it('Create Compound order Onetime with Provide Payment', () => {
+  it('Creating Compound order Onetime with Provide Payment', () => {
     cy.OnetimeDispenserIntercept()
     cy.CreatingCompoundOnetimePaymentOption()
   })
@@ -126,12 +126,12 @@ describe('Create OTC and Compound order subscription with provide payment', () =
     cy.HubLogin()
   });
 
-  it('Create OTC order Subscription with provide payment', () => {
+  it('Creating OTC order Subscription with provide payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreateOTCSubscriptionPaymentOption()
   })
 
-  it('Create Compound order Subscription with provide payment', () => {
+  it('Creating Compound order Subscription with provide payment', () => {
     cy.SubscriptionDispenserIntercept()
     cy.CreateCompoundSubscriptionPaymentOption()
   })

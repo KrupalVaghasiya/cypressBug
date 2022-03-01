@@ -115,7 +115,7 @@ describe('Update Patient details', () => {
         cy.PatientLogin()
     });
 
-    it('Check Order Details', () => {
+    it('Checking Order Details Screen', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.Orderscreen)
         cy.wait(2000)
         cy.clickOnElement(patientPageSelectors.Orderdetailbutton)
@@ -125,7 +125,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementTextWithForce(PatientData.BackToDashboard);
     })
 
-    it('Update Account Details', () => {
+    it('Updating Account Details', () => {
         cy.verifyTextToBePresent(PatientData.OrderDashboard);
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.verifyTextToBePresent(PatientData.AccountInfo);
@@ -147,7 +147,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(PatientData.AccountLink);
     });
 
-    it('Payment method', () => {
+    it('Adding Payment Method', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.AccountScreen)
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.UpdateButton, 1)
@@ -176,7 +176,7 @@ describe('Update Patient details', () => {
         }
     })
 
-    it('shipping address', () => {
+    it('Adding Shipping Address', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.AccountScreen)
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.UpdateButton, 2)
@@ -192,7 +192,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(practiceData.continueButton)
     })
 
-    it('Health Insurance', () => {
+    it('Adding Health Insurance', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.HealthInsurance)
         cy.clickOnElementUsingXpath(patientPageSelectors.Addhealth)
@@ -207,7 +207,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(practiceData.continueButton)
     })
 
-    it('Edit Health Insurance', () => {
+    it('Editing Health Insurance', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.HealthInsurance)
         cy.clickOnElementUsingXpath(patientPageSelectors.Editinsurance)
@@ -227,7 +227,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(practiceData.continueButton)
     })
 
-    it('Remove Health Insurance', () => {
+    it('Removing Health Insurance', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.HealthInsurance)
         cy.clickOnElementUsingXpathwithIndex(patientPageSelectors.removeButton, 0)
@@ -243,14 +243,14 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.Allergies)
     })
 
-    it('Remove Allergies', () => {
+    it('Removing Allergies', () => {
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingXpath(patientPageSelectors.Allergies)
         cy.clickOnElementUsingXpath(patientPageSelectors.RemoveAllergies)
         cy.clickOnElementUsingXpath(patientPageSelectors.confirmButton)
     })
 
-    it('Change Password', () => {
+    it('Changing Password', () => {
         cy.verifyTextToBePresent(PatientData.OrderDashboard);
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.verifyTextToBePresent(PatientData.AccountInfo);
@@ -266,7 +266,7 @@ describe('Update Patient details', () => {
         cy.clickOnElementUsingText(PatientData.PasswordLink);
     })
 
-    it('Check Preferences', () => {
+    it('Checking Preferences', () => {
         cy.verifyTextToBePresent(PatientData.OrderDashboard);
         cy.clickOnElementUsingXpath(patientPageSelectors.SettingScreen);
         cy.clickOnElementUsingText(PatientData.PreferenceLink);
