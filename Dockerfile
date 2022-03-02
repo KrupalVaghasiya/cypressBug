@@ -11,6 +11,16 @@
 # RUN $(npm bin)/cypress verify
 # RUN $(npm bin)/cypress run
 
-FROM cypress/base:10
-RUN npm install --save-dev cypress
-RUN npx cypress verify
+FROM cypress/base:14.19.0
+
+WORKDIR /legrande-cypress
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npx","cypress","run"]
