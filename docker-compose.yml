@@ -1,11 +1,6 @@
 version: '3'
 
 services:
-  e2e:
-    container_name: cypress
-    build: .
-    command: >
-      bash -c "cd cypress &&
-        npx cypress run -s cypress/integration/examples/*.js"
-    volumes:
-      - ./:/cypress
+  legrande:
+    image: cypress/base:14.19.0
+  
