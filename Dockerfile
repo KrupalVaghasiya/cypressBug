@@ -1,13 +1,11 @@
 FROM cypress/base:14.19.0
-WORKDIR /legrande-cypress
+RUN mkdir /legrande-cypress-docker
+WORKDIR /legrande-cypress-docker
 COPY ./package.json .
+COPY ./package-lock.json .
 COPY ./cypress.json .
 COPY ./cypress  ./cypress
-COPY ./cypress/plugins/index.js .
-RUN npm install cypress --save-dev
-RUN npm i --save-dev cypress-mochawesome-reporter
-COPY . .
-EXPOSE 3000
+RUN npm install
 ENTRYPOINT ["npx","cypress","run"]
 
 # FROM cypress/base:14.19.0

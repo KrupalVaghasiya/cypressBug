@@ -11,6 +11,9 @@ import { loginData } from '../../support/PageData/loginData.js';
 import { dispenserPageSelectors } from '../../support/PageSelectors/dispenserPageSelectors.js';
 import { dispenserData } from '../../support/PageData/dispenserData.js';
 import { patientPageSelectors } from '../../support/PageSelectors/patientPageSelectors.js';
+import { random } from 'lodash';
+
+let number = Math.random().toString(36).substring(2);
 
 describe('Verifing forgot Password From Standard Pharma ', () => {
   it('Forgot Password', () => {
@@ -143,8 +146,18 @@ describe('Verifing Process Payment And Creating Postage lable', () => {
     cy.ProcessPayment()
   })
 
-  it('Creating Postage Label', () => {
-    cy.CreatePostageLabel()
+  it('Manually adding tracking number', () => {
+    cy.readFile('cypress/fixtures/Data.json').then((profile) => {
+      cy.visit(loginData.ProductURL + loginData.DispenserURL + loginData.Order + profile.OrderID)
+    })
+    cy.contains('Select an Action').click()
+    cy.get('[aria-label="Change Shipping Details"]').click()
+    cy.xpath('//div[@class="modal-body"]//*[@class="Select-arrow"]').click()
+    cy.contains('FedEx').click()
+    cy.enterText('[name="tracking_number"]', number)
+    cy.clickOnElementUsingXpath(dispenserPageSelectors.updateButtonId)
+    cy.clickOnElementTextWithForce(loginData.dismissButton) // Click on Dismiss button
+    cy.verifyTextToBePresent("Courier Details: FedEx - "+number)
   })
 
   it('Creating OTC order Subscription with skip payment', () => {
