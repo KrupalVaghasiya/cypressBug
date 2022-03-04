@@ -1,6 +1,10 @@
 version: '3'
 
 services:
-  legrande:
-    image: cypress/base:14.19.0
+  chrome:
+    image: cypress-docker
+    command: record-test
+    volumes:
+      - ./cypress/Reports:/legrande-cypress-docker/cypress/Reports
+
   
