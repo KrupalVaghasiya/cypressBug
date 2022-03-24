@@ -1,10 +1,9 @@
 version: '3'
 
 services:
-  chrome:
-    image: cypress-docker
-    command: record-test
+  Electron:
+    image: cypress-image
+    command: cy:run
     volumes:
-      - ./cypress/Reports:/legrande-cypress-docker/cypress/Reports
-
-  
+      - ./cypress/reports:/legrande-cypress-docker/cypress/reports
+      

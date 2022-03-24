@@ -11,13 +11,16 @@
     "embeddedScreenshots": true,
     "inlineAssets": true
   },
-  "defaultCommandTimeout":30000,
-  "retries":{
-    "runMode":1,
-    "openMode":1
+  "defaultCommandTimeout": 30000,
+  "retries": {
+    "runMode": 1,
+    "openMode": 1
   },
   "video": false,
   "scrollBehavior": "nearest",
   "chromeWebSecurity": false,
-  "projectId": "bp9zfb"
+  "projectId": "bp9zfb",
+  "env": {
+    "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
+  }
 }
