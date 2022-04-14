@@ -16,7 +16,7 @@ const template = faker.name.firstName() + " Template";
 const treatmentTemplate = faker.name.firstName() + " treatment Template";
 
 describe('Forgot Password From Practice and Set new password', () => {
-  it('Verifing Forgot Password.', () => {
+  it.only('Verifing Forgot Password.', () => {
     cy.PracticeForgotPassword()
   })
 

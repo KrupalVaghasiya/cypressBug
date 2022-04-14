@@ -45,7 +45,7 @@ describe('Create Patient And OTC Subscription Order From Practice Account', () =
         cy.PracticeLogin()
     })
 
-    it('Create Patient', () => {
+    it.only('Create Patient', () => {
         cy.CreatePatient()
     })
 
