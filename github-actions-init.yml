@@ -8,6 +8,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Install dependencies
         run: npm install
-        run: npm install --dev       
-      - name: Cypress run
+        run: npm install --dev
         run: npm run record-test
