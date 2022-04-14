@@ -1,12 +1,19 @@
 name: GitHub Actions Demo
-on: [push]
+on: 
+  push:
+    branches:
+      - 'master'
+
 jobs:
  cypress-test:
-    runs-on: ubuntu-latest
-    container: cypress/base:14.19.0
+  name: run on linux
+  runs-on: ubuntu-latest
+  container: cypress/base:14.19.0
     steps: 
-      uses: actions/checkout@v2
-      name: Install dependencies
-      run: npm install
-      run: npm install --dev
-      run: npm run record-test
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --dev
+          npm run record-test
