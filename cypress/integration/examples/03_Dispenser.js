@@ -13,7 +13,7 @@ import { dispenserData } from '../../support/PageData/dispenserData.js';
 import { patientPageSelectors } from '../../support/PageSelectors/patientPageSelectors.js';
 
 describe('Verifing Forgot Password From Hub Dispenser ', () => {
-  it.only('Check Forgot Password', () => {
+  it('Check Forgot Password', () => {
     cy.HubForgotPassword()
   })
 
@@ -35,7 +35,7 @@ describe('Change Product Price and Create User from Hub Dispenser', () => {
     cy.HubLogin()
   });
 
-  it('Changing Product Price', () => {
+  it.only('Changing Product Price', () => {
     cy.ChangeProductPrice()
   })
 
