@@ -37,3 +37,4 @@ jobs:
 
     - name: Run cypress test
       run: npm run record-test
+      continue-on-error: true
