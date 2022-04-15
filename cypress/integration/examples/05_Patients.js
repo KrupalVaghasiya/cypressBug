@@ -45,7 +45,7 @@ describe('Create Patient And OTC Subscription Order From Practice Account', () =
         cy.PracticeLogin()
     })
 
-    it.only('Create Patient', () => {
+    it('Create Patient', () => {
         cy.CreatePatient()
     })
 
@@ -92,7 +92,7 @@ describe('Set Password For The Patient', () => {
         cy.verifyTextToBePresent(PatientData.ConfirmAllSet);
     })
 
-    it('Setup Patient Account', function () {
+    it.only('Setup Patient Account', function () {
         cy.PatientLogin()
         cy.enterText(patientPageSelectors.AllergiesTextboxID, allergiesName);
         cy.clickOnElementUsingXpath(patientPageSelectors.Allergiesbutton)
