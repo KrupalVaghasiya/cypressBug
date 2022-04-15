@@ -6,9 +6,8 @@ on:
 
 jobs:
  cypress-test:
-  name: run on linux
-  runs-on: ubuntu-latest
-  container: cypress/base:14.19.0
+  name: run on windows
+  runs-on: windows-latest
   steps: 
     - uses: actions/checkout@v2
 
