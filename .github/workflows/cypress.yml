@@ -39,7 +39,7 @@ jobs:
 
     - name: Run cypress test
       run: npm run record-test
-      continue-on-fail: true
+      continue-on-error: true
 
     - name: cypress run
       uses: cypress-io/github-action@v1
