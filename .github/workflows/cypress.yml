@@ -41,5 +41,5 @@ jobs:
       run: npm run record-test
       continue-on-fail: true
       uses: cypress-io/github-action@v1
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      env:
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
