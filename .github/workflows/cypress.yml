@@ -13,11 +13,7 @@ jobs:
   name: Run on windows
   runs-on: windows-latest
   steps: 
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Cypress run
-      uses: cypress-io/github-action@v2
+    - uses: actions/checkout@v2
 
     - name: Cache Node Modules
       id: cache-node-modules
@@ -41,4 +37,3 @@ jobs:
 
     - name: Run cypress test
       run: npm run record-test
-      continue-on-error: true
