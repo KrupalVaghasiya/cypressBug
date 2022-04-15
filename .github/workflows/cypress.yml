@@ -19,17 +19,19 @@ jobs:
         npm install --dev
         npm run record-test
 
-    - name: Copy execution test screenshots
-      run: |
-        mkdir public
-        cp -r cypress/screenshots public/screenshots
-    
-    - name: Merge test reports
-      run: |
-        npm run test
-        npm run delete:reportFolder
-        npm run test:cli
-        npm run merge:reports
+    - name: Cache Node Modules
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
-    - name: Generate HTML reports
-      run: npm run create:html:report
+    - name: Cache Cypress Binary
+      id: cache-cypress-binary
+      uses: actions/cache@v2
+      with:
+        path: cypress/cache
+        key: cypress-binary-${{ hashFiles('package-lock.json') }}
+
+    - name: Install Dependencies
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
