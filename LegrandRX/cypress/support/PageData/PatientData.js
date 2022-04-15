@@ -1,0 +1,26 @@
+const PatientData = {
+    InsurancePagetext: 'Please tell us about your health insurance.',
+    ConfirmAllSet: "Your email address has been verified, and your registration is complete.",
+    VerifyProduct: 'Welcome to Legrande Health!',
+    OrderDashboard: 'Hi',
+    AccountLink: 'Account',
+    AccountInfo: 'View your contact and payment information.',
+    PasswordLink: 'Password',
+    PasswordInfo: 'Update your current sign-in password.',
+    PreferenceLink: 'Preferences',
+    PreferenceInfo: 'Adjust account and notification settings',
+    BillingAddress: 'Billing Address',
+    ShippingAddress: 'Shipping Address',
+    Changepassword: 'Change password',
+    UpdateButton: 'Update',
+    BackToDashboard: 'Order Details',
+    Total: 'Total',
+    Donebutton: 'Done',
+    PlanCanceled: 'Your plan has been canceled.',
+    ThankyouMessage: 'Thank you for your feedback!',
+    HomeNotification: "We just need a few more details from you, then we'll be ready to ship!",
+    CustomReason: 'I have completed my treatment.',
+    Verifyforgetmail: 'Set New Password for Legrande Account',
+    CheckDetailsPending: "You’re all caught up!,We'll let you know as soon as anything changes."
+}
+export { PatientData }
