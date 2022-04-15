@@ -38,3 +38,10 @@ jobs:
     - name: Run cypress test
       run: npm run record-test
       continue-on-error: true
+
+    - name: Upload screenshots
+      uses: actions/upload-artifact@latest
+      if: failure()
+      with:
+        name: cypress-snapshots
+        path: cypress/snapshots
