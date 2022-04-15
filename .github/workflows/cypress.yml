@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - 'master'
-  env: 
-  CYPRESS_CACHE_FOLDER: cypress/cache
 
 jobs:
  cypress-test:
@@ -14,22 +12,6 @@ jobs:
   runs-on: windows-latest
   steps: 
     - uses: actions/checkout@v2
-    - name: Cache Node Modules
-      id: cache-node-modules
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
-
-    - name: Cache Cypress Binary
-      id: cache-cypress-binary
-      uses: actions/cache@v2
-      with:
-        path: cypress/cache
-        key: cypress-binary-${{ hashFiles('package-lock.json') }}
-
-    - name: Install Dependencies
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'
 
     - name: Install dependencies
       run: |
