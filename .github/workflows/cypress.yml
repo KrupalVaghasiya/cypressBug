@@ -35,8 +35,8 @@ jobs:
         npm install
         npm install --dev
 
-    - name: Run cypress test
-      uses: cypress.io/github-action@v2
+    - name: Cypress.io
+      uses: cypress-io/github-action@v2.9.7
       with:
         run: npm run record-test
       continue-on-error: true
