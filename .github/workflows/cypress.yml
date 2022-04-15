@@ -21,11 +21,15 @@ jobs:
 
     - name: Copy execution test screenshots
       run: |
-        mkdir Reports
-        cp -r cypress/screenshots Reports/screenshots
+        mkdir public
+        cp -r cypress/screenshots public/screenshots
     
     - name: Merge test reports
-      run: npm run merge:reports
+      run: |
+        npm run test
+        npm run delete:reportFolder
+        npm run test:cli
+        npm run merge:reports
 
     - name: Generate HTML reports
       run: npm run create:html:report
