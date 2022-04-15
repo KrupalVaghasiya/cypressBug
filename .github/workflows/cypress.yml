@@ -25,7 +25,7 @@ jobs:
         cp -r cypress/screenshots Reports/screenshots
     
     - name: Merge test reports
-      run: npm merge:reports
+      run: npm run merge:reports
 
     - name: Generate HTML reports
-      run: npm create:html:report
+      run: npm run create:html:report
