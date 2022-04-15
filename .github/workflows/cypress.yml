@@ -1,10 +1,12 @@
-name: GitHub Actions Demo
+name: Legrande GitHub Actions
 on:
   schedule:
   - cron: "0 0 * * *"
+
   push:
     branches:
       - 'master'
+      
 env: 
   CYPRESS_CACHE_FOLDER: cypress/cache
   
@@ -37,3 +39,7 @@ jobs:
 
     - name: Run cypress test
       run: npm run record-test
+      continue-on-fail: true
+      uses: cypress-io/github-action@v1
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
