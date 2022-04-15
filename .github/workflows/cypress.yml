@@ -1,4 +1,4 @@
-name: "Run every end of the day"
+name: Run every end of the day
 on:
   schedule:
   - cron: "0 0 * * *"
