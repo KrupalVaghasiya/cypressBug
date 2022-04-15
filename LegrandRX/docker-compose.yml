@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  Electron:
-    image: cypress-image
-    command: cy:run
-    volumes:
-      - ./cypress/reports:/legrande-cypress-docker/cypress/reports
-      
