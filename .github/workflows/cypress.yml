@@ -40,6 +40,7 @@ jobs:
     - name: Run cypress test
       run: npm run record-test
       continue-on-error: true
+      if: always()
 
     - name: cypress run
       uses: cypress-io/github-action@v1
