@@ -38,7 +38,7 @@ jobs:
         npm install --dev
 
     # - name: Run cypress test
-      uses: cypress-io/github-action@v1
+    - uses: cypress-io/github-action@v1
       run: npm run cy:run
       continue-on-error: true
       if: always()
