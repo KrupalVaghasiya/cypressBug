@@ -39,9 +39,11 @@ jobs:
 
     # - name: Run cypress test
     - uses: cypress-io/github-action@v1
+
+    - name: Run test
       run: npm run cy:run
-      continue-on-error: true
       if: always()
+      continue-on-error: true
 
     # - name: cypress run
       
