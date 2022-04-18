@@ -37,9 +37,18 @@ jobs:
         npm install
         npm install --dev
 
-    # - name: Run cypress test
     - uses: cypress-io/github-action@v2
-      if: always()
       continue-on-error: true
+
+    - name: Merge test results into one
+      run: npm run report:merge
+
+    - name: Generate HTML report
+      run: npm run report:generate
+
+    - name: Deploy report page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       env:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
