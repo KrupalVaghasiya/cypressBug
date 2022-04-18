@@ -38,11 +38,12 @@ jobs:
         npm install --dev
 
     - name: Run cypress test
+      uses: cypress-io/github-action@v1
       run: npm run record-test
       continue-on-error: true
       if: always()
 
-    - name: cypress run
-      uses: cypress-io/github-action@v1
-      env:
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    # - name: cypress run
+      
+    #   env:
+    #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
