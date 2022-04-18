@@ -39,13 +39,7 @@ jobs:
 
     # - name: Run cypress test
     - uses: cypress-io/github-action@v2
-
-    - name: Run test
-      run: npm run cy:run
       if: always()
       continue-on-error: true
-
-    # - name: cypress run
-      
-    #   env:
-    #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      env:
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
