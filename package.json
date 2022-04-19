@@ -35,7 +35,8 @@
     "mochawesome": "^6.3.1",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^5.2.0",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "validator": "^13.7.0"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.6",
