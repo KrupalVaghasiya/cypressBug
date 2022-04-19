@@ -10,7 +10,7 @@
     "merge:reports": "mochawesome-merge mochawesome-report/*.json > cypress-combined-report.json",
     "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json",
     "cy:run": "cypress run",
-    "record-test": "cypress run --record --key 18415255-c402-40f0-b983-ab9c3bdf3dc4"
+    "record-test": "cypress run --record --key e151eace-bd4b-4a84-8424-ac536d8c4955"
   },
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
