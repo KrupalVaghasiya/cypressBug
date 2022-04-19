@@ -1,7 +1,7 @@
 name: Legrande GitHub Actions
 on:
-  # schedule:
-  # - cron: "0 0 * * *"
+  schedule:
+  - cron: "0 0 * * *"
 
   push:
     branches:
@@ -43,4 +43,3 @@ jobs:
         record: true
       env:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        
