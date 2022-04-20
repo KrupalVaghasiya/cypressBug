@@ -19,8 +19,5 @@
   "video": false,
   "scrollBehavior": "nearest",
   "chromeWebSecurity": false,
-  "projectId": "ncb56k",
-  "env": {
-    "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
-  }
+  "projectId": "ncb56k"
 }
