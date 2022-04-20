@@ -35,7 +35,7 @@ num = num.toString().substring(0, 4);
 
 // Create Product from Master Account
 describe('Verifing forgot Password From Master ', () => {
-  it.only('Check for forgot Password', () => {
+  it('Check for forgot Password', () => {
     cy.MasterForgotPassword()
   });
 });
