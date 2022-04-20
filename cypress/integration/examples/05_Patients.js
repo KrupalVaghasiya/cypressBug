@@ -92,7 +92,7 @@ describe('Set Password For The Patient', () => {
         cy.verifyTextToBePresent(PatientData.ConfirmAllSet);
     })
 
-    it.only('Setup Patient Account', function () {
+    it('Setup Patient Account', function () {
         cy.PatientLogin()
         cy.enterText(patientPageSelectors.AllergiesTextboxID, allergiesName);
         cy.clickOnElementUsingXpath(patientPageSelectors.Allergiesbutton)

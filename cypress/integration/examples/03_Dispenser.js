@@ -35,7 +35,7 @@ describe('Change Product Price and Create User from Hub Dispenser', () => {
     cy.HubLogin()
   });
 
-  it.only('Changing Product Price', () => {
+  it('Changing Product Price', () => {
     cy.ChangeProductPrice()
   })
 
