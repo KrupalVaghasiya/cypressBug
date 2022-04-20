@@ -13,7 +13,7 @@ env:
 jobs:
  cypress-test:
   name: Run on windows
-  runs-on: ubuntu-latests
+  runs-on: ubuntu-18.04
   steps: 
     - uses: actions/checkout@v2
 
