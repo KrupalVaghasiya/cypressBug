@@ -1,6 +1,6 @@
 FROM cypress/base:16.13.0
-RUN mkdir /legrande-cypress-docker
-WORKDIR /legrande-cypress-docker
+RUN mkdir /legrande-cypress
+WORKDIR /legrande-cypress
 COPY ./package.json .
 COPY ./cypress.json .
 COPY ./cypress  ./cypress
