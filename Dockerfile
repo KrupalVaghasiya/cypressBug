@@ -1,4 +1,4 @@
-FROM cypress/base:14.19.0
+FROM cypress/base:16.13.0
 RUN mkdir /legrande-cypress-docker
 WORKDIR /legrande-cypress-docker
 COPY ./package.json .
