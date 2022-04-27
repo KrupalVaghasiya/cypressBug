@@ -58,8 +58,8 @@ env:
   
 jobs:
  cypress-test:
-  name: Run on windows
-  runs-on: windows-latest
+  name: Run on Linux
+  runs-on: ubuntu-20.04
   steps: 
     - uses: actions/checkout@v2
 
