@@ -16,7 +16,7 @@ import { random } from 'lodash';
 let number = Math.random().toString(36).substring(2);
 
 describe('Verifing forgot Password From Standard Pharma ', () => {
-  it('Forgot Password', () => {
+  it.only('Forgot Password', () => {
     cy.StandardPharmaForgotPassword()
   })
 
