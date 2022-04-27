@@ -105,7 +105,7 @@ describe('Set Password For The Patient', () => {
         cy.clickOnElementUsingText(practiceData.continueButton);
     })
 
-    it('Forgot Password', () => {
+    it.only('Forgot Password', () => {
         cy.PatientForgotPassword()
     })
 })

@@ -13,7 +13,7 @@ import { dispenserData } from '../../support/PageData/dispenserData.js';
 import { patientPageSelectors } from '../../support/PageSelectors/patientPageSelectors.js';
 
 describe('Verifing Forgot Password From Hub Dispenser ', () => {
-  it('Check Forgot Password', () => {
+  it.only('Check Forgot Password', () => {
     cy.HubForgotPassword()
   })
 
