@@ -24,7 +24,7 @@
   "author": "weblylab",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^7.6.0",
+    "cypress": "^9.5.4",
     "cypress-file-upload": "^5.0.2",
     "cypress-mochawesome-reporter": "^2.4.0",
     "cypress-slack-reporter": "^1.5.0",

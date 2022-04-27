@@ -46,20 +46,20 @@
 
 name: Legrande GitHub Actions
 on:
-  # schedule:
-  # - cron: "0 0 * * *"
+  schedule:
+  - cron: "0 0 * * *"
 
   push:
     branches:
-      - 'DEV'
-    
+      - 'master'
+      
 env: 
   CYPRESS_CACHE_FOLDER: cypress/cache
   
 jobs:
  cypress-test:
   name: Run on windows
-  runs-on: ubuntu-20.04
+  runs-on: windows-latest
   steps: 
     - uses: actions/checkout@v2
 
