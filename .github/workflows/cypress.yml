@@ -51,7 +51,7 @@ on:
 
   push:
     branches:
-      - 'master'
+      - 'DEV'
     
 env: 
   CYPRESS_CACHE_FOLDER: cypress/cache
